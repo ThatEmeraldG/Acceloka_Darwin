@@ -35,7 +35,7 @@ create table Users (
 	updated_at TIMESTAMPTZ null
 )
 
-create table Transaction (
+create table "Transaction" (
     transaction_id SERIAL primary key,
     transaction_date TIMESTAMPTZ default CURRENT_TIMESTAMP,
     total_price INT not null,
