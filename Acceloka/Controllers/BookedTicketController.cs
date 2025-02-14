@@ -1,74 +1,40 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Acceloka.Services;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Acceloka.Controllers
 {
-    [Route("api/v1/book-ticket/")]
+    [Route("api/v1/")]
     [ApiController]
     public class BookedTicketController : ControllerBase
     {
-        // GET: api/<BookedTicketController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly BookedTicketService _service;
+        public BookedTicketController(BookedTicketService service)
         {
-            return new string[] { "value1", "value2" };
+            _service = service;
         }
 
-        // GET api/<BookedTicketController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET: view details of a booked ticket
+        [HttpGet("get-booked-ticket/{BookedTicketId}")]
+        public async Task<IActionResult> Get()
         {
-            return "value";
+            var datas = await _service.Get(BookedTicketId);
+
+            return Ok(datas);
         }
 
-        // POST api/<BookedTicketController>
-        [HttpPost]
+        // POST: booking ticket yang quota masih tersisa
+        [HttpPost("book-ticket")]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<BookedTicketController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT: edit quantity ticket yang sudah pernah di booking
+        [HttpPut("edit-booked/{BookedTicketId}")]
+        public void Put(int BookedTicketId, [FromBody] string value)
         {
-        }
 
-        // DELETE api/<BookedTicketController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
-
-    //[Route("api/v1/get-booked-ticket/")]
-    //[ApiController]
-    //public class BookedTicketController : ControllerBase
-    //{
-    //    // GET: api/<BookedTicketController>
-    //    [HttpGet]
-    //    public IEnumerable<string> Get()
-    //    {
-    //        return new string[] { "value1", "value2" };
-    //    }
-
-    //    // GET api/<BookedTicketController>/5
-    //    [HttpGet("{id}")]
-    //    public string Get(int id)
-    //    {
-    //        return "value";
-    //    }
-
-    //    // POST api/<BookedTicketController>
-    //    [HttpPost]
-    //    public void Post([FromBody] string value)
-    //    {
-    //    }
-
-    //    // PUT api/<BookedTicketController>/5
-    //    [HttpPut("{id}")]
-    //    public void Put(int id, [FromBody] string value)
-    //    {
-    //    }
-    //}
 }

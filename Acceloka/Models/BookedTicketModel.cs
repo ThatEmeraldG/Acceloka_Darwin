@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Transactions;
 
 namespace Acceloka.Models
 {
@@ -21,11 +19,5 @@ namespace Acceloka.Models
         public DateTime? UpdatedAt { get; set; }
         public string CreatedBy { get; set; } = string.Empty;
         public string? UpdatedBy { get; set; }
-
-        // Foreign Key Relationship
-        [ForeignKey("TransactionId")]
-        public System.Transactions.Transaction? Transaction { get; set; }
-
-        public ICollection<BookedTicketDetailsModel>? BookedTicketDetails { get; set; }
     }
 }

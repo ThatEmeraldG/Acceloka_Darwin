@@ -21,6 +21,13 @@ namespace Acceloka.Services
                     TicketCode = Q.TicketCode,
                     TicketName = Q.TicketName,
                     CategoryId = Q.CategoryId,
+                    CategoryName = Q.CategoryId,
+                    EventStart = Q.EventStart,
+                    EventEnd = Q.EventEnd,
+                    CreatedAt = Q.CreatedAt,
+                    CreatedBy = Q.CreatedBy,
+                    UpdatedAt = Q.UpdatedAt,
+                    UpdatedBy = Q.UpdatedBy
                 }).ToListAsync();
 
             return datas;

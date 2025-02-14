@@ -1,5 +1,7 @@
 ﻿using Acceloka.Entities;
 using Acceloka.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 
 namespace Acceloka.Services
 {
@@ -18,7 +20,7 @@ namespace Acceloka.Services
             {
                 
                 CreatedAt = DateTime.UtcNow,
-                CreatedBy = "System",
+                CreatedBy = ,
                 UpdatedAt = DateTime.UtcNow,
                 UpdatedBy = "System",
             };

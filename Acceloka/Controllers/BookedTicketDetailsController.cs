@@ -4,33 +4,17 @@
 
 namespace Acceloka.Controllers
 {
-    [Route("api/v1/get-booked-ticket")]
+    [Route("api/v1/revoke-ticket")]
     [ApiController]
     public class BookedTicketDetailsController : ControllerBase
     {
-        // GET api/<BookedTicketDetailsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<BookedTicketDetailsController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<BookedTicketDetailsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
         // DELETE api/<BookedTicketDetailsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{BookedTicketId}/{TicketCode}/{Qty}")]
+        public async Task<IActionResult> Delete(int BookedTicketId, String TicketCode, int Qty)
         {
+
+
+            return Ok();
         }
     }
 }

@@ -31,21 +31,23 @@ namespace Acceloka.Services
 
         public async Task<UserModel> GetUserById(string id)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.UserId == id);
+            var data = await _db.Users.FirstOrDefaultAsync(x => x.UserId == id);
 
-            if (user == null)
+            if (data == null)
             {
                 return null;
             }
 
-            return new UserModel
+            var user = new UserModel
             {
-                UserId = user.UserId,
-                UserName = user.UserName,
-                UserEmail = user.UserEmail,
-                CreatedAt = user.CreatedAt,
-                UpdatedAt = user.UpdatedAt
+                UserId = data.UserId,
+                UserName = data.UserName,
+                UserEmail = data.UserEmail,
+                CreatedAt = data.CreatedAt,
+                UpdatedAt = data.UpdatedAt
             };
+
+            return user;
         }
 
 
