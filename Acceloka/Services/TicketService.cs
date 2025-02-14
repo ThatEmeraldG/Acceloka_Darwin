@@ -98,7 +98,7 @@ namespace Acceloka.Services
                 EventStart = request.EventStart,
                 EventEnd = request.EventEnd,
                 CategoryId = request.CategoryId,
-                CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime(),
+                CreatedAt = request.CreatedAt,
                 CreatedBy = "System",
             };
 
