@@ -4,35 +4,25 @@ namespace Acceloka.Models
 {
     public class TicketModel
     {
-        [Key]
         [StringLength(10)]
         public string TicketCode { get; set; } = string.Empty;
 
-        [Required]
         [StringLength(255)]
         public string TicketName { get; set; } = string.Empty;
 
-        [Required]
-        public int CategoryId { get; set; }
+        public int CategoryId { get; set; } = 1;
 
         public string CategoryName { get; set; } = string.Empty;
 
-        [Required]
-        public DateTime EventStart { get; set; }
+        public DateTime EventStart { get; set; } = DateTime.MinValue;
+        public DateTime EventEnd { get; set; } = DateTime.MinValue;
 
-        [Required]
-        public DateTime EventEnd { get; set; }
-
-        [Required]
-        public int Quota { get; set; }
-
-        [Required]
-        public int Price { get; set; }
-
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public int Quota { get; set; } = 0;
+        public int Price { get; set; } = 0;
+            
+        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
         public DateTime? UpdatedAt { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string CreatedBy { get; set; } = string.Empty;
 

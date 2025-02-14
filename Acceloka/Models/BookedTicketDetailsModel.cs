@@ -7,14 +7,12 @@ namespace Acceloka.Models
         [Key]
         public int BookedDetailId { get; set; }
 
-        [Required]
         public int BookedTicketId { get; set; }
 
-        [Required, StringLength(10)]
+        [StringLength(10)]
         public string TicketCode { get; set; } = string.Empty;
         public string TicketName { get; set; } = string.Empty;
 
-        [Required]
         public int TicketQuantity { get; set; }
 
         public int TotalTicketPrice { get; set; }
@@ -22,7 +20,7 @@ namespace Acceloka.Models
         public DateTime EventStart { get; set; }
         public DateTime EventEnd { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
         public DateTime? UpdatedAt { get; set; }
         public string CreatedBy { get; set; } = string.Empty;
         public string? UpdatedBy { get; set; }

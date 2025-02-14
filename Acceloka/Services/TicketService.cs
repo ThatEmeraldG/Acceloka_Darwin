@@ -13,24 +13,77 @@ namespace Acceloka.Services
         }
         
         // GET List Tickets
-        public async Task<List<TicketModel>> Get()
+        public async Task<List<TicketModel>> Get(TicketModel request)
         {
-            var datas = await _db.Tickets
-                .Select(Q => new TicketModel
-                {
-                    TicketCode = Q.TicketCode,
-                    TicketName = Q.TicketName,
-                    CategoryId = Q.CategoryId,
-                    CategoryName = Q.CategoryId,
-                    EventStart = Q.EventStart,
-                    EventEnd = Q.EventEnd,
-                    CreatedAt = Q.CreatedAt,
-                    CreatedBy = Q.CreatedBy,
-                    UpdatedAt = Q.UpdatedAt,
-                    UpdatedBy = Q.UpdatedBy
-                }).ToListAsync();
+            var query = _db.Tickets
+                .Include(c => c.Category)
+                .Where(t => t.Quota > 0);
 
-            return datas;
+            if (!string.IsNullOrEmpty(request.TicketCode))
+            {
+                query = query.Where(t => t.TicketCode.Contains(request.TicketCode));
+            }
+
+            if (!string.IsNullOrEmpty(request.TicketName))
+            {
+                query = query.Where(t => t.TicketName.Contains(request.TicketName));
+            }
+
+            if (!string.IsNullOrEmpty(request.CategoryName))
+            {
+                query = query.Where(t => t.Category != null && t.Category.CategoryName.Contains(request.CategoryName));
+            }
+
+            if (request.CategoryId != 0)
+            {
+                query = query.Where(t => t.CategoryId == request.CategoryId);
+            }
+
+            if (request.Price != 0)
+            {
+                query = query.Where(t => t.Price <= request.Price);
+            }
+
+            if (request.EventStart != DateTime.MinValue)
+            {
+                query = query.Where(t => t.EventStart.Date >= request.EventStart.Date);
+            }
+
+            if (request.EventEnd != DateTime.MinValue)
+            {
+                query = query.Where(t => t.EventEnd.Date <= request.EventEnd.Date);
+            }
+
+            query = request.OrderBy?.ToLower() switch
+            {
+                "ticketname" => request.OrderDirection?.ToLower() == "desc"
+                    ? query.OrderByDescending(t => t.TicketName)
+                    : query.OrderBy(t => t.TicketName),
+                "price" => request.OrderDirection?.ToLower() == "desc"
+                    ? query.OrderByDescending(t => t.Price)
+                    : query.OrderBy(t => t.Price),
+                "eventstart" => request.OrderDirection?.ToLower() == "desc"
+                    ? query.OrderByDescending(t => t.EventStart)
+                    : query.OrderBy(t => t.EventStart),
+                // Default Order = ASC
+                _ => query.OrderBy(t => t.TicketCode)
+            };
+
+            var tickets = await query.Select(Q => new TicketModel
+            {
+                TicketCode = Q.TicketCode,
+                TicketName = Q.TicketName,
+                CategoryId = Q.CategoryId,
+                CategoryName = Q.Category.CategoryName,
+                EventStart = Q.EventStart,
+                EventEnd = Q.EventEnd,
+                CreatedAt = Q.CreatedAt,
+                CreatedBy = Q.CreatedBy,
+                UpdatedAt = Q.UpdatedAt,
+                UpdatedBy = Q.UpdatedBy
+            }).ToListAsync();
+
+            return tickets;
         }
 
         // POST new Ticket
@@ -45,10 +98,8 @@ namespace Acceloka.Services
                 EventStart = request.EventStart,
                 EventEnd = request.EventEnd,
                 CategoryId = request.CategoryId,
-                CreatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime(),
                 CreatedBy = "System",
-                UpdatedAt = DateTime.UtcNow,
-                UpdatedBy = "System",
             };
 
             _db.Add(newData);

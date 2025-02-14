@@ -1,6 +1,8 @@
-﻿using Acceloka.Models;
+﻿using Acceloka.Entities;
+using Acceloka.Models;
 using Acceloka.Services;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,9 +19,10 @@ namespace Acceloka.Controllers
         }
 
         [HttpGet("get-available-ticket")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] TicketModel request)
         {
-            var datas = await _service.Get();
+
+            var datas = await _service.Get(request);
 
             return Ok(datas);
         }

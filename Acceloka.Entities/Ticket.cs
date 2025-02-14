@@ -13,7 +13,7 @@ public partial class Ticket
 
     public DateTime EventStart { get; set; }
 
-    public DateTime EventEnd { get; set; }
+    public DateTime EventEnd { get; set; } 
 
     public int Quota { get; set; }
 

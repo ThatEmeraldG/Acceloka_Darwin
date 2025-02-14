@@ -7,15 +7,15 @@ namespace Acceloka.Models
         [Key]
         public int BookedTicketId { get; set; }
 
-        [Required]
         public int TransactionId { get; set; }
-
-        public DateTime BookingDate { get; set; } = DateTime.UtcNow;
-
-        [Required]
+        public string TicketCode { get; set; }
+        public string TicketName { get; set; }
+        public int Price { get; set; }
         public int TotalCategoryPrice { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime BookingDate { get; set; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
+
+        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
         public DateTime? UpdatedAt { get; set; }
         public string CreatedBy { get; set; } = string.Empty;
         public string? UpdatedBy { get; set; }
