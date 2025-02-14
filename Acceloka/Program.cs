@@ -1,4 +1,5 @@
 using Acceloka.Entities;
+using Acceloka.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,10 +11,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
+builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AccelokaContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DbConnection"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSqlConnection"));
 });
+
+builder.Services.AddTransient<TicketService>();
+builder.Services.AddTransient<BookedTicketService>();
+builder.Services.AddTransient<BookedTicketDetailsService>();
+builder.Services.AddTransient<UserService>();
 
 var app = builder.Build();
 

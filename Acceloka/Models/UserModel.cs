@@ -3,12 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Acceloka.Models
 {
-    [Table("Users")]
-    public class User
+    public class UserModel
     {
         [Key]
         [Column("user_id")]
-        public Guid UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
 
         [Required]
         [Column("user_name")]

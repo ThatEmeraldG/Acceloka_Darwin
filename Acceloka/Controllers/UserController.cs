@@ -1,6 +1,6 @@
 ﻿using Acceloka.Entities;
 using Acceloka.Models;
-using Microsoft.AspNetCore.Identity;
+using Acceloka.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,52 +8,51 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Acceloka.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
+        private readonly UserService _service;
+        public UserController(UserService service)
+        {
+            _service = service;
+        }
 
         [HttpGet]
-        public async Task<List<User>> Get()
+        public async Task<IActionResult> Get()
         {
-            return await _dbContext.Users.ToListAsync();
+            var datas = await _service.Get();
+            return Ok(datas);
         }
 
         [HttpGet("{id}")]
-        public async Task<User> Get(int id)
+        public async Task<IActionResult> GetUserById(string id)
         {
-            return await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var data = await _service.GetUserById(id);
+            
+            return Ok(data);
         }
 
         // POST api/<UserController>
-        [HttpPost]
-        public async Task<ActionResult> Create([FromBody] User userAccount)
+        [HttpPost("create-user")]
+        public async Task<IActionResult> Post([FromBody] UserModel requestUser)
         {
-            if(string.IsNullOrWhiteSpace(userAccount.UserName) ||
-                string.IsNullOrWhiteSpace(userAccount.UserEmail) ||
-                string.IsNullOrWhiteSpace(userAccount.UserPassword))
+            //if (string.IsNullOrWhiteSpace(requestUser.UserName) ||
+            //    string.IsNullOrWhiteSpace(requestUser.UserEmail) ||
+            //    string.IsNullOrWhiteSpace(requestUser.UserPassword))
+            //{
+            //    return BadRequest("Invalid Request");
+            //}
+
+            //userAccount.UserPassword = PasswordHashHandler.HashPassword(userAccount.UserPassword);
+            if (!ModelState.IsValid)
             {
                 return BadRequest("Invalid Request");
             }
 
-            //userAccount.UserPassword = PasswordHashHandler.HashPassword(userAccount.UserPassword);
-            //await _dbContext.Users.AddAsync(userAccount);
-            //await _dbContext.SaveChangesAsync();
+            var datas = await _service.Post(requestUser);
 
-            //return CreatedAtAction(nameof(GetById), userAccount);
-        }
-
-        // PUT api/<UserController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok(datas);
         }
     }
 }

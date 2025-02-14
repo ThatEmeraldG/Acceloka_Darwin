@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Acceloka.Models
 {
-    [Table("Transaction")]
-    public class Transaction
+    public class TransactionModel
     {
         [Key]
         public int TransactionId { get; set; }
@@ -25,6 +24,6 @@ namespace Acceloka.Models
         public string CreatedBy { get; set; } = string.Empty;
         public string? UpdatedBy { get; set; }
 
-        public ICollection<BookedTicket>? BookedTickets { get; set; }
+        public ICollection<BookedTicketModel>? BookedTickets { get; set; }
     }
 }

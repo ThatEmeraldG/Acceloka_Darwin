@@ -4,8 +4,7 @@ using System.Transactions;
 
 namespace Acceloka.Models
 {
-    [Table("BookedTicket")]
-    public class BookedTicket
+    public class BookedTicketModel
     {
         [Key]
         public int BookedTicketId { get; set; }
@@ -27,6 +26,6 @@ namespace Acceloka.Models
         [ForeignKey("TransactionId")]
         public System.Transactions.Transaction? Transaction { get; set; }
 
-        public ICollection<BookedTicketDetails>? BookedTicketDetails { get; set; }
+        public ICollection<BookedTicketDetailsModel>? BookedTicketDetails { get; set; }
     }
 }

@@ -1,42 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Acceloka.Models;
+using Acceloka.Services;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Acceloka.Controllers
 {
-    [Route("api/v1/get-available-ticket")]
+    [Route("api/v1/ticket")]
     [ApiController]
     public class TicketController : ControllerBase
     {
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly TicketService _service;
+        public TicketController(TicketService service)
         {
-            return new string[] { "value1", "value2" };
+            _service = service;
         }
 
-        // GET api/<TicketController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("get-available-ticket")]
+        public async Task<IActionResult> Get()
         {
-            return "value";
+            var datas = await _service.Get();
+
+            return Ok(datas);
         }
 
         // POST api/<TicketController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("create-ticket")]
+        public async Task<IActionResult> Post([FromBody] TicketModel request)
         {
-        }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid Data, please fill all required fields!");
+            }
 
-        // PUT api/<TicketController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+            var datas = await _service.Post(request);
 
-        // DELETE api/<TicketController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok(datas);
         }
     }
 }

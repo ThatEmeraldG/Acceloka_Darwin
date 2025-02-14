@@ -4,8 +4,7 @@ using System.Net.Sockets;
 
 namespace Acceloka.Models
 {
-    [Table("BookedTicketDetail")]
-    public class BookedTicketDetails
+    public class BookedTicketDetailsModel
     {
         [Key]
         public int BookedDetailId { get; set; }
@@ -28,9 +27,9 @@ namespace Acceloka.Models
         public string? UpdatedBy { get; set; }
 
         [ForeignKey("BookedTicketId")]
-        public BookedTicket? BookedTicket { get; set; }
+        public BookedTicketModel? BookedTicket { get; set; }
 
         [ForeignKey("TicketCode")]
-        public Ticket? Ticket { get; set; }
+        public TicketModel? Ticket { get; set; }
     }
 }

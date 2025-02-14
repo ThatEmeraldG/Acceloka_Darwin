@@ -3,13 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Acceloka.Models
 {
-    [Table("Ticket")]
-    public class Ticket
+    public class TicketModel
     {
         [Key]
         [Column("ticket_code")]
         [StringLength(10)]
-        public String TicketCode { get; set; } = string.Empty;
+        public string TicketCode { get; set; } = string.Empty;
 
         [Required]
         [Column("ticket_name")]
@@ -19,6 +18,8 @@ namespace Acceloka.Models
         [Required]
         [Column("category_id")]
         public int CategoryId { get; set; }
+
+        public string CategoryName { get; set; } = string.Empty;
 
         [Required]
         [Column("event_start")]
