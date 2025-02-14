@@ -4,9 +4,10 @@ namespace Acceloka.Models
 {
     public class BookedTicketDetailsModel
     {
-        [Key]
+        [Required]
         public int BookedDetailId { get; set; }
 
+        [Required]
         public int BookedTicketId { get; set; }
 
         [StringLength(10)]

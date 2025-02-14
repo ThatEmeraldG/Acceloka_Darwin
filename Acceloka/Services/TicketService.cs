@@ -87,7 +87,7 @@ namespace Acceloka.Services
         }
 
         // POST new Ticket
-        public async Task<string> Post(TicketModel request)
+        public async Task<string> Post(CreateTicketRequest request)
         {
             var newData = new Ticket
             {
@@ -98,7 +98,7 @@ namespace Acceloka.Services
                 EventStart = request.EventStart,
                 EventEnd = request.EventEnd,
                 CategoryId = request.CategoryId,
-                CreatedAt = request.CreatedAt,
+                CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime(),
                 CreatedBy = "System",
             };
 

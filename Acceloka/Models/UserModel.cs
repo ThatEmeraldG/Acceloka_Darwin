@@ -4,7 +4,7 @@ namespace Acceloka.Models
 {
     public class UserModel
     {
-        [Key]
+        [Required]
         public string UserId { get; set; } = string.Empty;
        
         [StringLength(50)]

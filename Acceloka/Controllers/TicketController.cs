@@ -29,11 +29,11 @@ namespace Acceloka.Controllers
 
         // POST api/<TicketController>
         [HttpPost("create-ticket")]
-        public async Task<IActionResult> Post([FromBody] TicketModel request)
+        public async Task<IActionResult> Post([FromBody] CreateTicketRequest request)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid Data, please fill all required fields!");
+                return BadRequest("Invalid request.");
             }
 
             var datas = await _service.Post(request);
