@@ -15,7 +15,7 @@ namespace Acceloka.Services
         }
 
         // GET get-booked-ticket/{BookedTicketId}
-        public async Task<BookedTicketDetailsModel> Get(int id)
+        public async Task<object> Get(int id)
         {
             var data = await _db.BookedTickets
                 .Include(btd => btd.BookedTicketDetails)
@@ -27,20 +27,27 @@ namespace Acceloka.Services
                 return null;
             }
 
-            var bookedTicket = data.BookedTicketDetails.Select(btd => new BookedTicketDetailsModel
-            {
-                BookedDetailId = btd.BookedTicketId,
-                TicketCode = btd.TicketCode,
-                TicketName = btd.TicketCodeNavigation.TicketName,
-                EventStart = btd.TicketCodeNavigation.EventStart,
-                EventEnd = btd.TicketCodeNavigation.EventEnd,
-                CreatedAt = btd.CreatedAt,
-                CreatedBy = btd.CreatedBy,
-                UpdatedAt = btd.UpdatedAt,
-                UpdatedBy = btd.UpdatedBy
-            }).FirstOrDefault();
+            var bookedTicketDetails = data.BookedTicketDetails
+                        .GroupBy(btd => btd.TicketCodeNavigation.Category.CategoryName)
+                        .Select(d => new
+                        {
+                            categoryName = d.Key,
+                            qtyPerCategory = d.Sum(btd => btd.TicketQuantity),
+                            tickets = d.Select(btd => new
+                            {
+                                ticketCode = btd.TicketCode,
+                                ticketName = btd.TicketCodeNavigation.TicketName,
+                                eventStart = btd.TicketCodeNavigation.EventStart.ToString("dd-MM-yyyy HH:mm"),
+                                eventEnd = btd.TicketCodeNavigation.EventEnd.ToString("dd-MM-yyyy HH:mm"),
+                                quantity = btd.TicketQuantity,
+                                createdAt = btd.CreatedAt,
+                                createdBy = btd.CreatedBy,
+                                updatedAt = btd.UpdatedAt,
+                                updatedBy = btd.UpdatedBy
+                            }).ToList()
+                        }).ToList();
 
-            return bookedTicket;
+            return bookedTicketDetails;
         }
 
         // DELETE revoke-ticket/{BookedTicketId}/{TicketCode}/{Qty}
@@ -48,29 +55,30 @@ namespace Acceloka.Services
         {
             var existingData = await _db.BookedTickets
                                     .Include(bt => bt.BookedTicketDetails)
+                                    .ThenInclude(bt => bt.TicketCodeNavigation)
                                     .FirstOrDefaultAsync(bt => bt.BookedTicketId == bookedTicketId);
 
             if (existingData == null)
             {
-                return null; // BookedTicketId not found
+                return null;
             }
 
-            var ticketDetail = existingData.BookedTicketDetails.FirstOrDefault(td => td.TicketCode == ticketCode);
-            if (ticketDetail == null)
+            var ticketDetails = existingData.BookedTicketDetails.FirstOrDefault(td => td.TicketCode == ticketCode);
+            if (ticketDetails == null)
             {
                 return null; // TicketCode not found
             }
 
-            if (qty > ticketDetail.TicketQuantity)
+            if (qty > ticketDetails.TicketQuantity)
             {
-                return null; // Delete qty > actual quantity
+                return null; // Delete quantity > Actual quantity
             }
 
-            ticketDetail.TicketQuantity -= qty;
+            ticketDetails.TicketQuantity -= qty;
 
-            if (ticketDetail.TicketQuantity == 0) // Quantity = 0
+            if (ticketDetails.TicketQuantity == 0) // Quantity = 0
             {
-                _db.BookedTicketDetails.Remove(ticketDetail);
+                _db.BookedTicketDetails.Remove(ticketDetails);
             }
 
             if (!existingData.BookedTicketDetails.Any(td => td.TicketQuantity > 0))
@@ -82,10 +90,10 @@ namespace Acceloka.Services
 
             return new
             {
-                TicketCode = ticketDetail.TicketCode,
-                TicketName = ticketDetail.TicketCodeNavigation.TicketName,
-                CategoryName = ticketDetail.TicketCodeNavigation.Category.CategoryName,
-                RemainingQuantity = ticketDetail.TicketQuantity
+                ticketCode = ticketDetails.TicketCode,
+                ticketName = ticketDetails.TicketCodeNavigation.TicketName,
+                categoryName = ticketDetails.TicketCodeNavigation.Category.CategoryName,
+                remainingQty = ticketDetails.TicketQuantity
             };
         }
 
@@ -94,20 +102,20 @@ namespace Acceloka.Services
         {
             var existingData = await _db.BookedTickets
                 .Include(bt => bt.BookedTicketDetails)
-                .ThenInclude(td => td.TicketCodeNavigation)
+                .ThenInclude(bt => bt.TicketCodeNavigation)
                 .FirstOrDefaultAsync(bt => bt.BookedTicketId == bookedTicketId);
 
             if (existingData == null)
             {
-                return null; // BookedTicketId not found
+                return null;
             }
 
             List<object> updatedResults = new List<object>();
 
             foreach (var update in updatedTickets)
             {
-                var ticketDetail = existingData.BookedTicketDetails.FirstOrDefault(td => td.TicketCode == update.TicketCode);
-                if (ticketDetail == null)
+                var bookedDetail = existingData.BookedTicketDetails.FirstOrDefault(btd => btd.TicketCode == update.TicketCode);
+                if (bookedDetail == null)
                 {
                     return null; // TicketCode not found
                 }
@@ -129,20 +137,18 @@ namespace Acceloka.Services
                ? updatedTickets[0].UserName
                : "System";
 
-                ticketDetail.TicketQuantity = update.Quantity;
-                ticketDetail.TicketQuantity = update.Quantity;
-                ticketDetail.UpdatedAt = DateTime.UtcNow;
-                ticketDetail.UpdatedBy = username;
+                bookedDetail.TicketQuantity = update.Quantity;
+                bookedDetail.UpdatedAt = DateTime.UtcNow;
+                bookedDetail.UpdatedBy = username;
 
-                _db.BookedTicketDetails.Update(ticketDetail);
-
+                _db.BookedTicketDetails.Update(bookedDetail);
 
                 updatedResults.Add(new
                 {
-                    TicketCode = ticketDetail.TicketCode,
-                    TicketName = ticketDetail.TicketCodeNavigation.TicketName,
-                    CategoryName = ticketDetail.TicketCodeNavigation.Category.CategoryName,
-                    Quantity = ticketDetail.TicketQuantity
+                    ticketCode = bookedDetail.TicketCode,
+                    ticketName = bookedDetail.TicketCodeNavigation.TicketName,
+                    categoryName = bookedDetail.TicketCodeNavigation.Category.CategoryName,
+                    quantity = bookedDetail.TicketQuantity
                 });
             }
 

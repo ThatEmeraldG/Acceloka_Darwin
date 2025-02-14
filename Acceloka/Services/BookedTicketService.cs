@@ -1,8 +1,10 @@
 ﻿using Acceloka.Entities;
 using Acceloka.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Acceloka.Services
 {
@@ -15,98 +17,142 @@ namespace Acceloka.Services
         }
 
         // POST book-ticket
-        public async Task<string> Post(List<BookedTicketRequest> requests)
+        public async Task<object> Post(List<BookedTicketRequest> requests)
         {
             if (!requests.Any())
-                return "No tickets available";
+                return new { Message = "No tickets available" };
 
-            using var transaction = await _db.Database.BeginTransactionAsync();
             try
             {
                 var username = requests.Select(r => r.UserName)
-                                      .FirstOrDefault(u => !string.IsNullOrEmpty(u))
-                                  ?? "System";
+                                  .FirstOrDefault(u => !string.IsNullOrEmpty(u)) ?? "System";
 
                 var bookingDate = DateTime.UtcNow;
-                var totalAllCategories = 0;
-
-                var ticketCodes = requests.Select(r => r.TicketCode).Distinct().ToList();
-                var tickets = await _db.Tickets
-                    .Include(t => t.Category)
-                    .Where(t => ticketCodes.Contains(t.TicketCode))
-                    .ToDictionaryAsync(t => t.TicketCode);
-
                 var bookedTicket = new BookedTicket
                 {
                     BookingDate = bookingDate,
                     CreatedAt = bookingDate,
                     CreatedBy = username,
                 };
+
                 _db.Add(bookedTicket);
                 await _db.SaveChangesAsync();
 
+                var categorySummaries = new Dictionary<string, CategorySummary>();
+                var totalAllCategories = 0;
+
                 foreach (var request in requests)
                 {
-                    if (!tickets.TryGetValue(request.TicketCode, out var ticket))
-                        throw new KeyNotFoundException($"Ticket {request.TicketCode} not found");
+                    var ticket = await _db.Tickets
+                        .Include(t => t.Category)
+                        .FirstOrDefaultAsync(t => t.TicketCode == request.TicketCode);
 
-                    ValidateTicket(ticket, request, bookingDate);
+                    if (ticket == null)
+                    {
+                        throw new Exception($"Ticket {request.TicketCode} is not available");
+                    }
+
+                    if (ticket.Quota <= 0)
+                    {
+                        throw new Exception($"No Quota left for Ticket {request.TicketCode}, it is sold out.");
+                    }
+
+                    if (request.Quantity <= 0)
+                    {
+                        throw new Exception($"Quantity must be at least 1.");
+                    }
 
                     if (ticket.Quota < request.Quantity)
-                        throw new InvalidOperationException($"Item quantity must not exceed ticket quota.");
+                    {
+                        throw new Exception($"Item quantity must not exceed remaining quota. Available: {ticket.Quota}.");
+                    }
+
+                    if (ticket.EventEnd <= bookingDate)
+                    {
+                        throw new Exception($"Event for {ticket.TicketCode} has ended.");
+                    }
 
                     ticket.Quota -= request.Quantity;
+                    _db.Update(ticket);
 
-                    var totalTicketPrice = ticket.Price * request.Quantity;
-                    totalAllCategories += totalTicketPrice;
+                    var totalPrice = ticket.Price * request.Quantity;
+                    totalAllCategories += totalPrice;
+
+                    // Per Categories
+                    var categoryName = ticket.Category.CategoryName;
+                    if (!categorySummaries.TryGetValue(categoryName, out var categorySummary))
+                    {
+                        categorySummary = new CategorySummary
+                        {
+                            CategoryName = categoryName,
+                            SummaryPrice = 0,
+                            Tickets = new List<TicketInfo>()
+                        };
+                        categorySummaries[categoryName] = categorySummary;
+                    }
+
+                    categorySummary.SummaryPrice += totalPrice;
+                    categorySummary.Tickets.Add(new TicketInfo
+                    {
+                        TicketCode = ticket.TicketCode,
+                        TicketName = ticket.TicketName,
+                        Price = ticket.Price,
+                        Quantity = request.Quantity
+                    });
 
                     _db.BookedTicketDetails.Add(new BookedTicketDetail
                     {
                         BookedTicketId = bookedTicket.BookedTicketId,
-                        TicketCode = request.TicketCode,
+                        TicketCode = ticket.TicketCode,
                         TicketQuantity = request.Quantity,
-                        TotalTicketPrice = totalTicketPrice,
+                        TotalTicketPrice = totalPrice,
                         CreatedAt = bookingDate,
-                        CreatedBy = username,
-                        UpdatedAt = bookingDate,
-                        UpdatedBy = username
+                        CreatedBy = username
                     });
                 }
 
-                _db.Transactions.Add(new Transaction
-                {
-                    TransactionDate = DateTime.UtcNow,
-                    TotalPrice = totalAllCategories,
-                    TotalPayment = 0,
-                    PaymentMethod = "Pending",
-                    CreatedAt = bookingDate,
-                    CreatedBy = username
-                });
-
                 await _db.SaveChangesAsync();
-                await transaction.CommitAsync();
 
-                return $"Successfully booked {requests.Count} tickets. Transaction ID: {bookedTicket.BookedTicketId}";
+                return new
+                {
+                    pricesSummary = totalAllCategories,
+                    ticketsPerCategories = categorySummaries.Values.Select(cs => new
+                    {
+                        categoryName = cs.CategoryName,
+                        summaryPrice = cs.SummaryPrice,
+                        tickets = cs.Tickets.Select(t => new
+                        {
+                            ticketCode = t.TicketCode,
+                            ticketName = t.TicketName,
+                            price = t.Price,
+                            quantity = t.Quantity
+                        })
+                    })
+                };
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                await transaction.RollbackAsync();
-                throw new ApplicationException("Ticket booking failed. See inner exception.", e);
+                return new
+                {
+                    Error = ex.Message,
+                    Success = false
+                };
             }
         }
-        private void ValidateTicket(Ticket ticket, BookedTicketRequest request, DateTime bookingDate)
+
+        private class CategorySummary
         {
-            if (ticket == null)
-                throw new Exception($"Ticket {request.TicketCode} is not available.");
+            public string CategoryName { get; set; }
+            public int SummaryPrice { get; set; }
+            public List<TicketInfo> Tickets { get; set; }
+        }
 
-            if (ticket.Quota <= 0)
-                throw new Exception($"Quota for Ticket {request.TicketCode} is sold out.");
-
-            if (request.Quantity <= 0)
-                throw new Exception($"Quantity must be at least 1.");
-
-            if (ticket.EventEnd <= bookingDate)
-                throw new Exception($"Event for Ticket {request.TicketCode} has expired.");
+        private class TicketInfo
+        {
+            public string TicketCode { get; set; }
+            public string TicketName { get; set; }
+            public int Price { get; set; }
+            public int Quantity { get; set; }
         }
     }
 }

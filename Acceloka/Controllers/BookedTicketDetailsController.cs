@@ -19,37 +19,67 @@ namespace Acceloka.Controllers
 
         // GET: view details of a booked ticket
         [HttpGet("get-booked-ticket/{BookedTicketId}")]
-        public async Task<IActionResult> Get(int BookedTicketId)
+        public async Task<IActionResult> Get(int bookedTicketId)
         {
-            var datas = await _service.Get(BookedTicketId);
-
-            return Ok(datas);
+            try
+            {
+                var result = await _service.Get(bookedTicketId);
+                if (result == null)
+                {
+                    return NotFound($"Data {bookedTicketId} not found");
+                }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<BookedTicketDetailsController>/5
         [HttpDelete("revoke-ticket/{BookedTicketId}/{TicketCode}/{Qty}")]
         public async Task<IActionResult> Delete(int bookedTicketId, string ticketCode, int qty)
         {
-            var result = await _service.Delete(bookedTicketId, ticketCode, qty);
-            if (result == null)
+            if (qty <= 0)
             {
-                return BadRequest("Invalid request.");
+                return BadRequest("Invalid quantity to delete.");
             }
 
-            return Ok(result);
+            try
+            {
+                var result = await _service.Delete(bookedTicketId, ticketCode, qty);
+                if (result == null)
+                {
+                    return NotFound($"Data {bookedTicketId} Not Found");
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT: edit quantity ticket yang sudah pernah di booking
         [HttpPut("edit-booked-ticket/{BookedTicketId}")]
         public async Task<IActionResult> Put(int bookedTicketId, [FromBody] List<BookedTicketRequest> updatedTickets)
         {
-            var result = await _service.Put(bookedTicketId, updatedTickets);
-            if (result == null)
+            try
             {
-                return BadRequest("Invalid request.");
-            }
+                var result = await _service.Put(bookedTicketId, updatedTickets);
 
-            return Ok(result);
+                if (result == null)
+                {
+                    return NotFound($"Data {bookedTicketId} Not Found");
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            { 
+                return BadRequest($"{ex.Message}");
+            }
         }
     }
 }

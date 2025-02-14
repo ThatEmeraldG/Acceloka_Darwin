@@ -29,7 +29,7 @@ namespace Acceloka.Models
         [StringLength(50)]
         public string UpdatedBy { get; set; } = string.Empty ;
 
-        public string OrderBy { get; set; } = string.Empty;
-        public string OrderDirection { get; set; } = string.Empty; // ASC or DESC
+        public string OrderBy { get; set; } = "ticketCode";
+        public string OrderDirection { get; set; } = "ASC"; // ASC or DESC
     }
 }
