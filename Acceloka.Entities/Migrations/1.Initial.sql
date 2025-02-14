@@ -56,7 +56,7 @@ create table BookedTicket (
 	updated_at TIMESTAMPTZ null,
 	created_by VARCHAR(50) not null,
 	updated_by VARCHAR(50) null,
-    foreign key (transaction_id) references Transaction(transaction_id) on delete cascade
+    foreign key (transaction_id) references "Transaction"(transaction_id) on delete cascade
 );
 
 create table BookedTicketDetail (
