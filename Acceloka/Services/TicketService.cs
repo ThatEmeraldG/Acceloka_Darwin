@@ -18,7 +18,7 @@ namespace Acceloka.Services
         // GET List Tickets
         public async Task<List<TicketModel>> GetTickets(GetTicketRequest request)
         {
-            _logger.LogInformation("Fetching all available tickets");
+            _logger.LogInformation("Fetching all available tickets...");
 
             var query = _db.Tickets
                 .Include(c => c.Category)
@@ -88,7 +88,7 @@ namespace Acceloka.Services
                 UpdatedBy = Q.UpdatedBy
             }).ToListAsync();
 
-            _logger.LogInformation("Returning {TicketCount} tickets", tickets.Count);
+            _logger.LogInformation("Successfully fetched {TicketCount} tickets", tickets.Count);
 
             return tickets;
         }

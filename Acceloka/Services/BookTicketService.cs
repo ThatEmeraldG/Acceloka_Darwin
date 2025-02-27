@@ -11,15 +11,17 @@ namespace Acceloka.Services
     public class BookTicketService
     {
         private readonly AccelokaContext _db;
-        public BookTicketService(AccelokaContext db)
+        private readonly ILogger<BookTicketService> _logger;
+        public BookTicketService(AccelokaContext db, ILogger<BookTicketService> logger)
         {
             _db = db;
+            _logger = logger;
         }
 
         // POST book-ticket
         public async Task<object> BookTickets(List<BookTicketRequest> tickets, string username)
         {
-            //_logger.LogInformation("Starting ticket booking process for {Count} tickets", tickets.Count);
+            _logger.LogInformation("Starting ticket booking process for {Count} tickets...", tickets.Count);
 
             var errors = new List<string>();
             var validBookings = new List<(Ticket ticket, int quantity)>(); // Track List of Valid Bookings
@@ -27,7 +29,7 @@ namespace Acceloka.Services
 
             foreach (var item in tickets)
             {
-                //_logger.LogInformation("Validating ticket with code {TicketCode}", item.TicketCode);
+                _logger.LogInformation("Validating ticket with code {TicketCode}", item.TicketCode);
 
                 var ticket = await _db.Tickets
                     .Include(t => t.Category)
@@ -36,29 +38,29 @@ namespace Acceloka.Services
                 if (ticket == null)
                 {
                     errors.Add($"Ticket code '{item.TicketCode}' is not registered");
-                    //_logger.LogWarning("Ticket code {TicketCode} is not registered", item.TicketCode);
+                    _logger.LogWarning("Ticket code {TicketCode} is not registered", item.TicketCode);
                     continue;
                 }
 
                 if (ticket.Quota <= 0)
                 {
                     errors.Add($"Ticket code '{item.TicketCode}' is sold out");
-                    //_logger.LogWarning("Ticket code {TicketCode} is sold out", item.TicketCode);
+                    _logger.LogWarning("Ticket code {TicketCode} is sold out", item.TicketCode);
                     continue;
                 }
 
                 if (item.Quantity > ticket.Quota)
                 {
                     errors.Add($"Requested quantity {item.Quantity} for ticket '{item.TicketCode}' exceeds available quota ({ticket.Quota})");
-                    //_logger.LogWarning("Ticket code {TicketCode} quantity {Quantity} exceeds available quota {Quota}",
-                    //    item.TicketCode, item.Quantity, ticket.Quota);
+                    _logger.LogWarning("Ticket code {TicketCode} quantity {Quantity} exceeds available quota {Quota}",
+                        item.TicketCode, item.Quantity, ticket.Quota);
                     continue;
                 }
 
                 if (ticket.EventEnd <= currentDate)
                 {
                     errors.Add($"Event for ticket '{item.TicketCode}' has already ended");
-                    //_logger.LogWarning("Ticket code {TicketCode} event has already ended", item.TicketCode);
+                    _logger.LogWarning("Ticket code {TicketCode} event has already ended", item.TicketCode);
                     continue;
                 }
 
@@ -67,7 +69,7 @@ namespace Acceloka.Services
 
             if (errors.Any())
             {
-                //_logger.LogError("Errors encountered during ticket booking: {Errors}", string.Join(", ", errors));
+                _logger.LogError("Errors encountered during ticket booking: {Errors}", string.Join(", ", errors));
                 return new
                 {
                     success = false,
@@ -127,8 +129,8 @@ namespace Acceloka.Services
                     ticket.UpdatedBy = username;
                     _db.Tickets.Update(ticket);
 
-                    //_logger.LogInformation("Updated quota for ticket {TicketCode} to {RemainingQuota}",
-                    //    ticket.TicketCode, ticket.Quota);
+                    _logger.LogInformation("Updated quota for ticket {TicketCode} to {RemainingQuota}",
+                        ticket.TicketCode, ticket.Quota);
                 }
 
                 await _db.SaveChangesAsync();
@@ -149,7 +151,7 @@ namespace Acceloka.Services
                     })
                     .ToList();
 
-                //_logger.LogInformation("Booking process completed successfully. Total price: {TotalPrice}", totalPrice);
+                _logger.LogInformation("Booking process completed successfully. Total price: {TotalPrice}", totalPrice);
 
                 return new
                 {
@@ -160,7 +162,7 @@ namespace Acceloka.Services
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                //_logger.LogError(ex, "Error occurred during booking process");
+                _logger.LogError(ex, "Error occurred during booking process");
                 return new
                 {
                     success = false,
