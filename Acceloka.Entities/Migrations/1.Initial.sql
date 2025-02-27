@@ -77,4 +77,6 @@ INSERT INTO Category (category_name, created_by) VALUES
 ('Cinema', 'Admin'),
 ('Transportasi Darat', 'Admin'),
 ('Transportasi Laut', 'Admin'),
-('Hotel', 'Admin');
+('Hotel', 'Admin'),
+('Concert', 'Admin'),
+('Pesawat', 'Admin');

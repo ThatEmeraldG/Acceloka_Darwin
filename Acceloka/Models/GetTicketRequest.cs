@@ -2,7 +2,7 @@
 
 namespace Acceloka.Models
 {
-    public class TicketModel
+    public class GetTicketRequest
     {
         [StringLength(10)]
         public string TicketCode { get; set; } = string.Empty;
@@ -15,17 +15,10 @@ namespace Acceloka.Models
 
         public DateTime EventStart { get; set; } = DateTime.MinValue;
         public DateTime EventEnd { get; set; } = DateTime.MinValue;
-
-        public int Quota { get; set; }
+        
         public int Price { get; set; }
-            
-        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
-        public DateTime? UpdatedAt { get; set; }
 
-        [StringLength(50)]
-        public string CreatedBy { get; set; } = string.Empty;
-
-        [StringLength(50)]
-        public string UpdatedBy { get; set; } = string.Empty ;
+        public string OrderBy { get; set; } = "ticketCode";
+        public string OrderDirection { get; set; } = "ASC"; // ASC or DESC
     }
 }

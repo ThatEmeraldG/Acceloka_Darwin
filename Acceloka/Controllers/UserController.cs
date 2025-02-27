@@ -21,7 +21,7 @@ namespace Acceloka.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var datas = await _service.Get();
+            var datas = await _service.GetAllUsers();
             return Ok(datas);
         }
 
@@ -29,28 +29,19 @@ namespace Acceloka.Controllers
         public async Task<IActionResult> GetUserById(string id)
         {
             var data = await _service.GetUserById(id);
-            
             return Ok(data);
         }
 
         // POST api/<UserController>
         [HttpPost("create-user")]
-        public async Task<IActionResult> Post([FromBody] UserModel requestUser)
+        public async Task<IActionResult> Post([FromBody] CreateUserRequest requestUser)
         {
-            //if (string.IsNullOrWhiteSpace(requestUser.UserName) ||
-            //    string.IsNullOrWhiteSpace(requestUser.UserEmail) ||
-            //    string.IsNullOrWhiteSpace(requestUser.UserPassword))
-            //{
-            //    return BadRequest("Invalid Request");
-            //}
-
-            //userAccount.UserPassword = PasswordHashHandler.HashPassword(userAccount.UserPassword);
             if (!ModelState.IsValid)
             {
                 return BadRequest("Invalid Request");
             }
 
-            var datas = await _service.Post(requestUser);
+            var datas = await _service.PostUser(requestUser);
 
             return Ok(datas);
         }

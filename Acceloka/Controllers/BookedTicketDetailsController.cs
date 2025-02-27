@@ -23,7 +23,7 @@ namespace Acceloka.Controllers
         {
             try
             {
-                var result = await _service.Get(bookedTicketId);
+                var result = await _service.GetBookedTicket(bookedTicketId);
                 if (result == null)
                 {
                     return NotFound($"Data {bookedTicketId} not found");
@@ -47,7 +47,7 @@ namespace Acceloka.Controllers
 
             try
             {
-                var result = await _service.Delete(bookedTicketId, ticketCode, qty);
+                var result = await _service.DeleteBookedTicket(bookedTicketId, ticketCode, qty);
                 if (result == null)
                 {
                     return NotFound($"Data {bookedTicketId} Not Found");
@@ -63,11 +63,11 @@ namespace Acceloka.Controllers
 
         // PUT: edit quantity ticket yang sudah pernah di booking
         [HttpPut("edit-booked-ticket/{BookedTicketId}")]
-        public async Task<IActionResult> Put(int bookedTicketId, [FromBody] List<BookedTicketRequest> updatedTickets)
+        public async Task<IActionResult> Put(int bookedTicketId, [FromBody] List<BookTicketRequest> updatedTickets)
         {
             try
             {
-                var result = await _service.Put(bookedTicketId, updatedTickets);
+                var result = await _service.EditBookedTicket(bookedTicketId, updatedTickets);
 
                 if (result == null)
                 {

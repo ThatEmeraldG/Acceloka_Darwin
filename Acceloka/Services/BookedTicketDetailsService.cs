@@ -9,14 +9,18 @@ namespace Acceloka.Services
     public class BookedTicketDetailsService
     {
         private readonly AccelokaContext _db;
-        public BookedTicketDetailsService(AccelokaContext db)
+        private readonly ILogger<BookedTicketDetailsService> _logger;
+        public BookedTicketDetailsService(AccelokaContext db, ILogger<BookedTicketDetailsService> logger)
         {
             _db = db;
+            _logger = logger;
         }
 
         // GET get-booked-ticket/{BookedTicketId}
-        public async Task<object> Get(int id)
+        public async Task<object> GetBookedTicket(int id)
         {
+            _logger.LogInformation("Fetching booked ticket details for BookedTicketId: {BookedTicketId}...", id);
+
             var data = await _db.BookedTickets
                 .Include(btd => btd.BookedTicketDetails)
                 .ThenInclude(tc => tc.TicketCodeNavigation)
@@ -24,6 +28,7 @@ namespace Acceloka.Services
 
             if (data == null)
             {
+                _logger.LogWarning("Booked ticket not found for BookedTicketId: {BookedTicketId}", id);
                 return null;
             }
 
@@ -47,12 +52,16 @@ namespace Acceloka.Services
                             }).ToList()
                         }).ToList();
 
+            _logger.LogInformation("Successfully retrieved booked ticket details for BookedTicketId: {BookedTicketId}", id);
             return bookedTicketDetails;
         }
 
         // DELETE revoke-ticket/{BookedTicketId}/{TicketCode}/{Qty}
-        public async Task<object> Delete(int bookedTicketId, string ticketCode, int qty)
+        public async Task<object> DeleteBookedTicket(int bookedTicketId, string ticketCode, int qty)
         {
+            _logger.LogInformation("Revoking {Quantity} tickets with code {TicketCode} from booking {BookedTicketId}...",
+                qty, ticketCode, bookedTicketId);
+
             var existingData = await _db.BookedTickets
                                     .Include(bt => bt.BookedTicketDetails)
                                     .ThenInclude(bt => bt.TicketCodeNavigation)
@@ -60,46 +69,66 @@ namespace Acceloka.Services
 
             if (existingData == null)
             {
+                _logger.LogWarning("Booked ticket not found for BookedTicketId: {BookedTicketId}", bookedTicketId);
                 return null;
             }
 
             var ticketDetails = existingData.BookedTicketDetails.FirstOrDefault(td => td.TicketCode == ticketCode);
             if (ticketDetails == null)
             {
+                _logger.LogWarning("Ticket code {TicketCode} not found in booking {BookedTicketId}", ticketCode, bookedTicketId);
                 return null; // TicketCode not found
             }
 
             if (qty > ticketDetails.TicketQuantity)
             {
+                _logger.LogWarning("Requested quantity {Quantity} exceeds available quantity {AvailableQty} for ticket {TicketCode}",
+                    qty, ticketDetails.TicketQuantity, ticketCode);
                 return null; // Delete quantity > Actual quantity
             }
 
-            ticketDetails.TicketQuantity -= qty;
-
-            if (ticketDetails.TicketQuantity == 0) // Quantity = 0
+            var ticket = await _db.Tickets.FirstOrDefaultAsync(t => t.TicketCode == ticketCode);
+            if (ticket != null)
             {
+                ticket.Quota += qty;
+            }
+
+            ticketDetails.TicketQuantity -= qty;
+            ticketDetails.UpdatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
+            ticketDetails.UpdatedBy = "System";
+
+            if (ticketDetails.TicketQuantity == 0)
+            {
+                _logger.LogInformation("Removing ticket booking for {TicketCode}, quantity reached zero", ticketCode);
                 _db.BookedTicketDetails.Remove(ticketDetails);
             }
 
             if (!existingData.BookedTicketDetails.Any(td => td.TicketQuantity > 0))
             {
+                _logger.LogInformation("Removing entire booking {BookedTicketId}, no tickets remain", bookedTicketId);
                 _db.BookedTickets.Remove(existingData);
             }
 
             await _db.SaveChangesAsync();
 
+            _logger.LogInformation("Successfully revoked {Quantity} tickets of {TicketCode} from booking {BookedTicketId}",
+                qty, ticketCode, bookedTicketId);
+
             return new
             {
                 ticketCode = ticketDetails.TicketCode,
                 ticketName = ticketDetails.TicketCodeNavigation.TicketName,
-                categoryName = ticketDetails.TicketCodeNavigation.Category.CategoryName,
+                categoryName = ticketDetails.TicketCodeNavigation.Category?.CategoryName ?? "No Category",
                 remainingQty = ticketDetails.TicketQuantity
             };
         }
 
         // PUT edit-booked-ticket/{BookedTicketId}
-        public async Task<List<object>> Put(int bookedTicketId, List<BookedTicketRequest> updatedTickets)
+        public async Task<List<object>> EditBookedTicket(int bookedTicketId, List<BookTicketRequest> updatedTickets)
         {
+            _logger.LogInformation("Updating booked ticket {BookedTicketId}...",
+                bookedTicketId);
+
             var existingData = await _db.BookedTickets
                 .Include(bt => bt.BookedTicketDetails)
                 .ThenInclude(bt => bt.TicketCodeNavigation)
@@ -107,6 +136,7 @@ namespace Acceloka.Services
 
             if (existingData == null)
             {
+                _logger.LogWarning("Booked ticket not found for BookedTicketId: {BookedTicketId}", bookedTicketId);
                 return null;
             }
 
@@ -114,15 +144,22 @@ namespace Acceloka.Services
 
             foreach (var update in updatedTickets)
             {
+                _logger.LogInformation("Processing update for ticket {TicketCode} with quantity {Quantity}",
+                        update.TicketCode, update.Quantity);
+
                 var bookedDetail = existingData.BookedTicketDetails.FirstOrDefault(btd => btd.TicketCode == update.TicketCode);
                 if (bookedDetail == null)
                 {
-                    return null; // TicketCode not found
+                    _logger.LogWarning("Ticket code {TicketCode} not found in booking {BookedTicketId}",
+                            update.TicketCode, bookedTicketId);
+                    return null;
                 }
 
                 // Quantity kurang dari 1
                 if (update.Quantity < 1)
                 {
+                    _logger.LogWarning("Invalid quantity {Quantity} provided for ticket {TicketCode}",
+                            update.Quantity, update.TicketCode);
                     return null;
                 }
 
@@ -130,15 +167,31 @@ namespace Acceloka.Services
                 var ticket = await _db.Tickets.FirstOrDefaultAsync(t => t.TicketCode == update.TicketCode);
                 if (ticket == null || update.Quantity > ticket.Quota)
                 {
+                    _logger.LogWarning("Ticket with code {TicketCode} not found in database", update.TicketCode);
                     return null;
                 }
 
-                var username = updatedTickets.Any() && !string.IsNullOrEmpty(updatedTickets[0].UserName)
-               ? updatedTickets[0].UserName
-               : "System";
+                int quantityDiff = update.Quantity - bookedDetail.TicketQuantity;
+
+                if (quantityDiff > 0 && quantityDiff > ticket.Quota)
+                {
+                    _logger.LogWarning("Insufficient quota for ticket {TicketCode}. Requested increase: {Requested}, Available: {Available}",
+                        update.TicketCode, quantityDiff, ticket.Quota);
+                    return null;
+                }
+
+                // Valid, update quota ticketnya
+                if (quantityDiff != 0)
+                {
+                    ticket.Quota -= quantityDiff;
+                    _logger.LogInformation("Updated quota for ticket {TicketCode}. New quota: {NewQuota}",
+                        update.TicketCode, ticket.Quota);
+                }
+
+                var username = "System";
 
                 bookedDetail.TicketQuantity = update.Quantity;
-                bookedDetail.UpdatedAt = DateTime.UtcNow;
+                bookedDetail.UpdatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
                 bookedDetail.UpdatedBy = username;
 
                 _db.BookedTicketDetails.Update(bookedDetail);
@@ -153,6 +206,7 @@ namespace Acceloka.Services
             }
 
             await _db.SaveChangesAsync();
+            _logger.LogInformation("Successfully updated booked ticket {BookedTicketId}", bookedTicketId);
             return updatedResults;
         }
     }

@@ -2,12 +2,11 @@
 
 namespace Acceloka.Models
 {
-    public class BookedTicketRequest
+    public class BookTicketRequest
     {
         [Required]
         public string TicketCode { get; set; }
         [Required]
         public int Quantity { get; set; }
-        public string UserName { get; set; }
     }
 }

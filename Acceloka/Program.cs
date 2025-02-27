@@ -1,6 +1,7 @@
 using Acceloka.Entities;
 using Acceloka.Services;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,13 +12,26 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+var logDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
+if (!Directory.Exists(logDirectory))
+{
+    Directory.CreateDirectory(logDirectory);
+}
+
+builder.Host.UseSerilog((context, config) =>
+{
+    config.ReadFrom.Configuration(context.Configuration);
+});
+
+// PostgreSQL Connection
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AccelokaContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSqlConnection"));
 });
 
 builder.Services.AddTransient<TicketService>();
-builder.Services.AddTransient<BookedTicketService>();
+builder.Services.AddTransient<BookTicketService>();
 builder.Services.AddTransient<BookedTicketDetailsService>();
 builder.Services.AddTransient<UserService>();
 
@@ -29,6 +43,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 

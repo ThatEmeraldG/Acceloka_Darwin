@@ -8,27 +8,29 @@ namespace Acceloka.Controllers
 {
     [Route("api/v1/")]
     [ApiController]
-    public class BookedTicketController : ControllerBase
+    public class BookingController : ControllerBase
     {
-        private readonly BookedTicketService _service;
-        public BookedTicketController(BookedTicketService service)
+        private readonly BookTicketService _service;
+        public BookingController(BookTicketService service)
         {
             _service = service;
         }
 
         // POST: booking ticket yang quota masih tersisa
         [HttpPost("book-ticket")]
-        public async Task<IActionResult> Post([FromBody] List<BookedTicketRequest> request)
+        public async Task<IActionResult> Post([FromBody] List<BookTicketRequest> request)
         {
-            if (!ModelState.IsValid)
+            if (request == null || !request.Any())
             {
-                return BadRequest("Invalid request");
+                return BadRequest("No tickets specified for booking");
             }
+
+            var username = "System";
 
             try
             {
-                var datas = await _service.Post(request);
-                return Ok(datas);
+                var result = await _service.BookTickets(request, username);
+                return Ok(result);
             }
             catch (Exception e)
             {

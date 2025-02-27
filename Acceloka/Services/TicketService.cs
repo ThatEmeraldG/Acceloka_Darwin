@@ -7,14 +7,19 @@ namespace Acceloka.Services
     public class TicketService
     {
         private readonly AccelokaContext _db;
-        public TicketService(AccelokaContext db)
+        private readonly ILogger<TicketService> _logger;
+
+        public TicketService(AccelokaContext db, ILogger<TicketService> logger)
         {
             _db = db;
+            _logger = logger;
         }
         
         // GET List Tickets
-        public async Task<List<TicketModel>> Get(TicketModel request)
+        public async Task<List<TicketModel>> GetTickets(GetTicketRequest request)
         {
+            _logger.LogInformation("Fetching all available tickets");
+
             var query = _db.Tickets
                 .Include(c => c.Category)
                 .Where(t => t.Quota > 0);
@@ -62,7 +67,7 @@ namespace Acceloka.Services
                 "price" => request.OrderDirection?.ToLower() == "desc"
                     ? query.OrderByDescending(t => t.Price)
                     : query.OrderBy(t => t.Price),
-                "eventstart" => request.OrderDirection?.ToLower() == "desc"
+                "eventdate" => request.OrderDirection?.ToLower() == "desc"
                     ? query.OrderByDescending(t => t.EventStart)
                     : query.OrderBy(t => t.EventStart),
                 // Default Order = ASC
@@ -83,11 +88,13 @@ namespace Acceloka.Services
                 UpdatedBy = Q.UpdatedBy
             }).ToListAsync();
 
+            _logger.LogInformation("Returning {TicketCount} tickets", tickets.Count);
+
             return tickets;
         }
 
         // POST new Ticket
-        public async Task<string> Post(CreateTicketRequest request)
+        public async Task<string> PostTicket(CreateTicketRequest request)
         {
             var newData = new Ticket
             {
@@ -102,11 +109,38 @@ namespace Acceloka.Services
                 CreatedBy = "System",
             };
 
-            _db.Add(newData);
+            _db.Tickets.Add(newData);
 
             await _db.SaveChangesAsync();
 
+            _logger.LogInformation("Successfully created new ticket: {TicketCode} - {TicketName}", request.TicketCode, request.TicketName);
+
             return "Success";
+        }
+
+        // DELETE ticket
+        public async Task<string> DeleteTicket(string ticketCode)
+        {
+            var data = await _db.Tickets.FindAsync(ticketCode);
+
+            if (data == null)
+            {
+                _logger.LogWarning("Ticket not found: {TicketCode}", ticketCode);
+                return "Ticket not found";
+            }
+
+            try
+            {
+                _db.Tickets.Remove(data);
+                await _db.SaveChangesAsync();
+                _logger.LogInformation("Successfully deleted ticket: {TicketCode}", ticketCode);
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogWarning("Failed to delete ticket: {TicketCode}", ticketCode);
+                return $"Failed to delete ticket: {ex.Message}";
+            }
         }
     }
 }

@@ -19,10 +19,10 @@ namespace Acceloka.Controllers
         }
 
         [HttpGet("get-available-ticket")]
-        public async Task<IActionResult> Get([FromQuery] TicketModel request)
+        public async Task<IActionResult> Get([FromQuery] GetTicketRequest request)
         {
 
-            var datas = await _service.Get(request);
+            var datas = await _service.GetTickets(request);
 
             return Ok(datas);
         }
@@ -36,7 +36,7 @@ namespace Acceloka.Controllers
                 return BadRequest("Invalid request.");
             }
 
-            var datas = await _service.Post(request);
+            var datas = await _service.PostTicket(request);
 
             return Ok(datas);
         }
