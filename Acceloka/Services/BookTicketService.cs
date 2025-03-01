@@ -146,7 +146,8 @@ namespace Acceloka.Services
                         {
                             ticketCode = b.ticket.TicketCode,
                             ticketName = b.ticket.TicketName,
-                            price = b.ticket.Price
+                            price = b.ticket.Price,
+                            quantity = b.quantity
                         }).ToList()
                     })
                     .ToList();

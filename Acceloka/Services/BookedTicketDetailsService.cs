@@ -17,18 +17,18 @@ namespace Acceloka.Services
         }
 
         // GET get-booked-ticket/{BookedTicketId}
-        public async Task<object> GetBookedTicket(int id)
+        public async Task<object> GetBookedTicket(int bookedTicketId)
         {
-            _logger.LogInformation("Fetching booked ticket details for BookedTicketId: {BookedTicketId}...", id);
+            _logger.LogInformation("Fetching booked ticket details for BookedTicketId: {BookedTicketId}...", bookedTicketId);
 
             var data = await _db.BookedTickets
                 .Include(btd => btd.BookedTicketDetails)
                 .ThenInclude(tc => tc.TicketCodeNavigation)
-                .FirstOrDefaultAsync(x => x.BookedTicketId == id);
+                .FirstOrDefaultAsync(x => x.BookedTicketId == bookedTicketId);
 
             if (data == null)
             {
-                _logger.LogWarning("Booked ticket not found for BookedTicketId: {BookedTicketId}", id);
+                _logger.LogWarning("Booked ticket not found for BookedTicketId: {BookedTicketId}", bookedTicketId);
                 return null;
             }
 
@@ -52,7 +52,7 @@ namespace Acceloka.Services
                             }).ToList()
                         }).ToList();
 
-            _logger.LogInformation("Successfully retrieved booked ticket details for BookedTicketId: {BookedTicketId}", id);
+            _logger.LogInformation("Successfully retrieved booked ticket details for BookedTicketId: {BookedTicketId}", bookedTicketId);
             return bookedTicketDetails;
         }
 
