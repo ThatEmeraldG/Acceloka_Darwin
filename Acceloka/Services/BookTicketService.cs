@@ -19,7 +19,7 @@ namespace Acceloka.Services
         }
 
         // POST book-ticket
-        public async Task<object> BookTickets(List<BookTicketRequest> tickets, string username)
+        public async Task<object> BookTickets(List<BookTicketRequest> tickets, string? username)
         {
             _logger.LogInformation("Starting ticket booking process for {Count} tickets...", tickets.Count);
 
@@ -90,7 +90,7 @@ namespace Acceloka.Services
                     TotalPayment = totalPrice,
                     PaymentMethod = "Credit Card", // Test sudah dibayar
                     CreatedAt = currentDate,
-                    CreatedBy = username
+                    CreatedBy = string.IsNullOrEmpty(username) ? "System" : username
                 };
 
                 _db.Transactions.Add(transactionRecord);
@@ -103,7 +103,7 @@ namespace Acceloka.Services
                     BookingDate = currentDate,
                     TotalCategoryPrice = totalPrice,
                     CreatedAt = currentDate,
-                    CreatedBy = username
+                    CreatedBy = string.IsNullOrEmpty(username) ? "System" : username
                 };
 
                 _db.BookedTickets.Add(bookedTicket);
@@ -119,7 +119,7 @@ namespace Acceloka.Services
                         TicketQuantity = quantity,
                         TotalTicketPrice = ticket.Price * quantity,
                         CreatedAt = currentDate,
-                        CreatedBy = username
+                        CreatedBy = string.IsNullOrEmpty(username) ? "System" : username
                     };
 
                     _db.BookedTicketDetails.Add(bookedDetail);

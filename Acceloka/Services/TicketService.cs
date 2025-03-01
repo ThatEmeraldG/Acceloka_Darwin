@@ -70,8 +70,9 @@ namespace Acceloka.Services
                 "eventdate" => request.OrderDirection?.ToLower() == "desc"
                     ? query.OrderByDescending(t => t.EventStart)
                     : query.OrderBy(t => t.EventStart),
-                // Default Order = ASC
-                _ => query.OrderBy(t => t.TicketCode)
+                _ => request.OrderDirection?.ToLower() == "desc" 
+                    ? query.OrderByDescending(t => t.TicketCode) 
+                    : query.OrderBy(t => t.TicketCode)
             };
 
             var tickets = await query.Select(Q => new TicketModel
@@ -80,6 +81,8 @@ namespace Acceloka.Services
                 TicketName = Q.TicketName,
                 CategoryId = Q.CategoryId,
                 CategoryName = Q.Category.CategoryName,
+                Price = Q.Price,
+                Quota = Q.Quota,
                 EventStart = Q.EventStart,
                 EventEnd = Q.EventEnd,
                 CreatedAt = Q.CreatedAt,
@@ -94,7 +97,7 @@ namespace Acceloka.Services
         }
 
         // POST new Ticket
-        public async Task<string> PostTicket(CreateTicketRequest request)
+        public async Task<string> PostTicket(CreateTicketRequest request, string? username)
         {
             var newData = new Ticket
             {
@@ -105,8 +108,8 @@ namespace Acceloka.Services
                 EventStart = request.EventStart,
                 EventEnd = request.EventEnd,
                 CategoryId = request.CategoryId,
-                CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime(),
-                CreatedBy = "System",
+                CreatedAt = DateTime.UtcNow,
+                CreatedBy = string.IsNullOrEmpty(username)? "System" : username,
             };
 
             _db.Tickets.Add(newData);

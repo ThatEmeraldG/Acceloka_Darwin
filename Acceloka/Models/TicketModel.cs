@@ -19,7 +19,7 @@ namespace Acceloka.Models
         public int Quota { get; set; }
         public int Price { get; set; }
             
-        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
 
         [StringLength(50)]

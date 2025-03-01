@@ -94,7 +94,7 @@ namespace Acceloka.Services
             }
 
             ticketDetails.TicketQuantity -= qty;
-            ticketDetails.UpdatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
+            ticketDetails.UpdatedAt = DateTime.UtcNow;
             ticketDetails.UpdatedBy = "System";
 
             if (ticketDetails.TicketQuantity == 0)
@@ -191,7 +191,7 @@ namespace Acceloka.Services
                 var username = "System";
 
                 bookedDetail.TicketQuantity = update.Quantity;
-                bookedDetail.UpdatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
+                bookedDetail.UpdatedAt = DateTime.UtcNow;
                 bookedDetail.UpdatedBy = username;
 
                 _db.BookedTicketDetails.Update(bookedDetail);

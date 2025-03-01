@@ -76,8 +76,8 @@ namespace Acceloka.Services
                 UserName = requestUser.UserName,
                 UserEmail = requestUser.UserEmail,
                 UserPassword = requestUser.UserPassword,
-                CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime(),
-                UpdatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime()
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
             };
 
             _db.Users.Add(newData);

@@ -18,14 +18,12 @@ namespace Acceloka.Controllers
 
         // POST: booking ticket yang quota masih tersisa
         [HttpPost("book-ticket")]
-        public async Task<IActionResult> Post([FromBody] List<BookTicketRequest> request)
+        public async Task<IActionResult> Post([FromBody] List<BookTicketRequest> request, [FromHeader (Name = "Username")] string? username)
         {
             if (request == null || !request.Any())
             {
                 return BadRequest("No tickets specified for booking");
-            }
-
-            var username = "System";
+            };
 
             try
             {

@@ -16,7 +16,7 @@ namespace Acceloka.Models
         [StringLength(255)]
         public string UserPassword { get; set; } = string.Empty;
 
-        public DateTime CreatedAt { get; set; } = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Unspecified).ToLocalTime();
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         public DateTime? UpdatedAt { get; set; }
     }
