@@ -22,8 +22,9 @@ namespace Acceloka.Services
             _logger.LogInformation("Fetching booked ticket details for BookedTicketId: {BookedTicketId}...", bookedTicketId);
 
             var data = await _db.BookedTickets
-                .Include(btd => btd.BookedTicketDetails)
-                .ThenInclude(tc => tc.TicketCodeNavigation)
+                .Include(bt => bt.BookedTicketDetails)
+                .ThenInclude(bt => bt.TicketCodeNavigation)
+                .ThenInclude(bt => bt.Category)
                 .FirstOrDefaultAsync(x => x.BookedTicketId == bookedTicketId);
 
             if (data == null)
@@ -65,6 +66,7 @@ namespace Acceloka.Services
             var existingData = await _db.BookedTickets
                                     .Include(bt => bt.BookedTicketDetails)
                                     .ThenInclude(bt => bt.TicketCodeNavigation)
+                                    .ThenInclude(bt => bt.Category)
                                     .FirstOrDefaultAsync(bt => bt.BookedTicketId == bookedTicketId);
 
             if (existingData == null)
@@ -132,6 +134,7 @@ namespace Acceloka.Services
             var existingData = await _db.BookedTickets
                 .Include(bt => bt.BookedTicketDetails)
                 .ThenInclude(bt => bt.TicketCodeNavigation)
+                .ThenInclude(bt => bt.Category)
                 .FirstOrDefaultAsync(bt => bt.BookedTicketId == bookedTicketId);
 
             if (existingData == null)
