@@ -33,6 +33,11 @@ namespace Acceloka.Services
                 return null;
             }
 
+            if (data.BookedTicketDetails == null || !data.BookedTicketDetails.Any())
+            {
+                return new List<object>();
+            }
+
             var bookedTicketDetails = data.BookedTicketDetails
                         .GroupBy(btd => btd.TicketCodeNavigation.Category.CategoryName)
                         .Select(d => new
