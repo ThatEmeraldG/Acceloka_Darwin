@@ -18,6 +18,7 @@ namespace Acceloka.Controllers
             _service = service;
         }
 
+        // GET
         [HttpGet("get-available-ticket")]
         public async Task<IActionResult> Get([FromQuery] GetTicketRequest request)
         {

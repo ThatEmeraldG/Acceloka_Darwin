@@ -1,0 +1,159 @@
+[2025-03-03 17:02:09 INF] Now listening on: "http://localhost:5261"
+[2025-03-03 17:02:09 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-03 17:02:09 INF] Hosting environment: "Development"
+[2025-03-03 17:02:09 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-03 23:00:16 WRN] Failed to determine the https port for redirect.
+[2025-03-03 23:00:17 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-03 23:00:17 INF] Fetching all available tickets...
+[2025-03-03 23:00:18 INF] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:00:18 INF] Successfully fetched 2 tickets
+[2025-03-03 23:00:18 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 1625.1840 ms
+[2025-03-03 23:10:52 INF] Fetching all available tickets...
+[2025-03-03 23:10:52 INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:10:52 INF] Successfully fetched 2 tickets
+[2025-03-03 23:10:52 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 83.5652 ms
+[2025-03-03 23:10:54 INF] Fetching all available tickets...
+[2025-03-03 23:10:54 INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:10:54 INF] Successfully fetched 2 tickets
+[2025-03-03 23:10:54 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 73.0338 ms
+[2025-03-03 23:11:01 INF] Fetching all available tickets...
+[2025-03-03 23:11:01 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:11:01 INF] Successfully fetched 2 tickets
+[2025-03-03 23:11:01 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 8.9925 ms
+[2025-03-03 23:12:23 INF] Fetching all available tickets...
+[2025-03-03 23:12:23 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:12:23 INF] Successfully fetched 2 tickets
+[2025-03-03 23:12:23 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.0207 ms
+[2025-03-03 23:12:27 INF] Fetching all available tickets...
+[2025-03-03 23:12:27 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:12:27 INF] Successfully fetched 2 tickets
+[2025-03-03 23:12:27 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 7.9097 ms
+[2025-03-03 23:12:55 INF] Fetching all available tickets...
+[2025-03-03 23:12:55 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:12:55 INF] Successfully fetched 2 tickets
+[2025-03-03 23:12:55 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.8534 ms
+[2025-03-03 23:13:11 INF] Fetching all available tickets...
+[2025-03-03 23:13:11 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:13:11 INF] Successfully fetched 2 tickets
+[2025-03-03 23:13:11 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 18.0183 ms
+[2025-03-03 23:13:47 INF] Fetching all available tickets...
+[2025-03-03 23:13:47 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:13:47 INF] Successfully fetched 2 tickets
+[2025-03-03 23:13:47 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.4473 ms
+[2025-03-03 23:14:29 INF] Fetching all available tickets...
+[2025-03-03 23:14:29 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:14:29 INF] Successfully fetched 2 tickets
+[2025-03-03 23:14:29 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 45.6172 ms
+[2025-03-03 23:15:22 INF] Fetching all available tickets...
+[2025-03-03 23:15:22 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:15:22 INF] Successfully fetched 2 tickets
+[2025-03-03 23:15:22 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.4932 ms
+[2025-03-03 23:15:29 INF] Fetching all available tickets...
+[2025-03-03 23:15:29 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:15:29 INF] Successfully fetched 2 tickets
+[2025-03-03 23:15:29 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 7.2821 ms
+[2025-03-03 23:15:29 INF] Fetching all available tickets...
+[2025-03-03 23:15:29 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:15:29 INF] Successfully fetched 2 tickets
+[2025-03-03 23:15:29 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 7.7818 ms
+[2025-03-03 23:15:39 INF] Fetching all available tickets...
+[2025-03-03 23:15:39 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:15:39 INF] Successfully fetched 2 tickets
+[2025-03-03 23:15:39 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 7.4242 ms
+[2025-03-03 23:15:39 INF] Fetching all available tickets...
+[2025-03-03 23:15:39 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:15:39 INF] Successfully fetched 2 tickets
+[2025-03-03 23:15:39 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 6.8098 ms
+[2025-03-03 23:50:17 INF] Fetching all available tickets...
+[2025-03-03 23:50:17 INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:50:17 INF] Successfully fetched 2 tickets
+[2025-03-03 23:50:17 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 54.6808 ms
+[2025-03-03 23:50:17 INF] Fetching all available tickets...
+[2025-03-03 23:50:17 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-03 23:50:17 INF] Successfully fetched 2 tickets
+[2025-03-03 23:50:17 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 6.4229 ms

@@ -99,6 +99,17 @@ namespace Acceloka.Services
         // POST new Ticket
         public async Task<string> PostTicket(CreateTicketRequest request, string? username)
         {
+            var ticketCategory = await _db.Categories
+                                .FirstOrDefaultAsync(category => category.CategoryName == request.CategoryName);
+
+            if (ticketCategory == null)
+            {
+                _logger.LogWarning("Category not found: {CategoryName}", request.CategoryName);
+                return null;
+            }
+
+            var categoryId = ticketCategory.CategoryId;
+
             var newData = new Ticket
             {
                 TicketCode = request.TicketCode,
@@ -107,7 +118,7 @@ namespace Acceloka.Services
                 Quota = request.Quota,
                 EventStart = request.EventStart,
                 EventEnd = request.EventEnd,
-                CategoryId = request.CategoryId,
+                CategoryId = categoryId,
                 CreatedAt = DateTime.UtcNow,
                 CreatedBy = string.IsNullOrEmpty(username)? "System" : username,
             };

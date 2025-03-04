@@ -9,7 +9,7 @@ namespace Acceloka.Models
         [Required]
         public string TicketName { get; set; } = string.Empty;
         [Required]
-        public int CategoryId { get; set; }
+        public string CategoryName { get; set; } = string.Empty;
         [Required]
         public DateTime EventStart { get; set; } = DateTime.MinValue;
         [Required]

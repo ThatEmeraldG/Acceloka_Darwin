@@ -38,7 +38,7 @@ namespace Acceloka.Controllers
 
         // DELETE api/<BookedTicketDetailsController>/5
         [HttpDelete("revoke-ticket/{BookedTicketId}/{TicketCode}/{Qty}")]
-        public async Task<IActionResult> Delete(int bookedTicketId, string ticketCode, int qty)
+        public async Task<IActionResult> Delete(int bookedTicketId, string ticketCode, int qty, [FromHeader(Name = "Username")] string? username)
         {
             if (qty <= 0)
             {
@@ -47,7 +47,7 @@ namespace Acceloka.Controllers
 
             try
             {
-                var result = await _service.DeleteBookedTicket(bookedTicketId, ticketCode, qty);
+                var result = await _service.DeleteBookedTicket(bookedTicketId, ticketCode, qty, username);
                 if (result == null)
                 {
                     return NotFound($"Data {bookedTicketId} Not Found");
@@ -63,11 +63,11 @@ namespace Acceloka.Controllers
 
         // PUT: edit quantity ticket yang sudah pernah di booking
         [HttpPut("edit-booked-ticket/{BookedTicketId}")]
-        public async Task<IActionResult> Put(int bookedTicketId, [FromBody] List<BookTicketRequest> updatedTickets)
+        public async Task<IActionResult> Put(int bookedTicketId, [FromBody] List<BookTicketRequest> updatedTickets, [FromHeader(Name = "Username")] string? username)
         {
             try
             {
-                var result = await _service.EditBookedTicket(bookedTicketId, updatedTickets);
+                var result = await _service.EditBookedTicket(bookedTicketId, updatedTickets, username);
 
                 if (result == null)
                 {
@@ -78,7 +78,7 @@ namespace Acceloka.Controllers
             }
             catch (Exception ex)
             { 
-                return BadRequest($"{ex.Message}");
+                return BadRequest(ex.Message);
             }
         }
     }
