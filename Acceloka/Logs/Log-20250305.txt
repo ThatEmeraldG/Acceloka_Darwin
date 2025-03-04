@@ -1,0 +1,83 @@
+[2025-03-05 03:47:28 INF] Now listening on: "http://localhost:5261"
+[2025-03-05 03:47:28 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-05 03:47:28 INF] Hosting environment: "Development"
+[2025-03-05 03:47:28 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-05 03:47:35 WRN] Failed to determine the https port for redirect.
+[2025-03-05 03:47:35 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-05 03:47:35 INF] HTTP "GET" "/api/v1/get-booked-ticket/{BookedTicketId}" responded 400 in 316.8591 ms
+[2025-03-05 03:47:42 INF] HTTP "GET" "/api/v1/get-booked-ticket/{BookedTicketId}" responded 400 in 8.0451 ms
+[2025-03-05 03:47:45 INF] HTTP "GET" "/api/v1/get-booked-ticket/{BookedTicketId}" responded 400 in 2.8879 ms
+[2025-03-05 03:48:12 INF] Fetching all available tickets...
+[2025-03-05 03:48:13 INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_code"
+[2025-03-05 03:48:13 INF] Successfully fetched 11 tickets
+[2025-03-05 03:48:13 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 1064.8962 ms
+[2025-03-05 03:48:39 INF] Fetching all available tickets...
+[2025-03-05 03:48:39 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT t.ticket_code AS \"TicketCode\", t.ticket_name AS \"TicketName\", t.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t.price AS \"Price\", t.quota AS \"Quota\", t.event_start AS \"EventStart\", t.event_end AS \"EventEnd\", t.created_at AS \"CreatedAt\", t.created_by AS \"CreatedBy\", t.updated_at AS \"UpdatedAt\", t.updated_by AS \"UpdatedBy\"
+FROM ticket AS t
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE t.quota > 0
+ORDER BY t.ticket_name DESC"
+[2025-03-05 03:48:39 INF] Successfully fetched 11 tickets
+[2025-03-05 03:48:39 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 45.7890 ms
+[2025-03-05 05:44:23 INF] Now listening on: "http://localhost:5261"
+[2025-03-05 05:44:23 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-05 05:44:23 INF] Hosting environment: "Development"
+[2025-03-05 05:44:23 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-05 05:44:42 WRN] Failed to determine the https port for redirect.
+[2025-03-05 05:44:42 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-05 05:44:42 INF] HTTP "GET" "/api/v1/get-booked-ticket/{BookedTicketId}" responded 400 in 161.3002 ms
+[2025-03-05 05:45:14 INF] HTTP "GET" "/api/v1/get-booked-ticket/" responded 404 in 0.1313 ms
+[2025-03-05 05:45:51 INF] HTTP "GET" "/api/v1/get-booked-ticket/" responded 404 in 0.0252 ms
+[2025-03-05 05:48:25 INF] Now listening on: "http://localhost:5261"
+[2025-03-05 05:48:25 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-05 05:48:25 INF] Hosting environment: "Development"
+[2025-03-05 05:48:25 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-05 05:48:31 WRN] Failed to determine the https port for redirect.
+[2025-03-05 05:48:31 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-05 05:48:31 INF] Fetching ticket details for BookedTicketId: 1...
+[2025-03-05 05:48:32 INF] Executed DbCommand ("62"ms) [Parameters=["@__bookedTicketId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT b.booked_detail_id, b.booked_ticket_id, b.created_at, b.created_by, b.ticket_code, b.ticket_quantity, b.total_ticket_price, b.updated_at, b.updated_by, b0.booked_ticket_id, b0.booking_date, b0.created_at, b0.created_by, b0.total_category_price, b0.transaction_id, b0.updated_at, b0.updated_by, t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by, c.category_id, c.category_name, c.created_at, c.created_by, c.updated_at, c.updated_by
+FROM bookedticketdetail AS b
+INNER JOIN bookedticket AS b0 ON b.booked_ticket_id = b0.booked_ticket_id
+INNER JOIN ticket AS t ON b.ticket_code = t.ticket_code
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE b.booked_ticket_id = @__bookedTicketId_0"
+[2025-03-05 05:48:33 INF] Successfully retrieved booked ticket details for BookedTicketId: 1
+[2025-03-05 05:48:33 INF] HTTP "GET" "/api/v1/get-booked-ticket/1" responded 200 in 1664.5063 ms
+[2025-03-05 05:49:02 INF] HTTP "GET" "/api/v1/get-booked-ticket/" responded 404 in 0.1383 ms
+[2025-03-05 05:49:27 INF] Fetching ticket details for BookedTicketId: 1...
+[2025-03-05 05:49:27 INF] Executed DbCommand ("3"ms) [Parameters=["@__bookedTicketId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT b.booked_detail_id, b.booked_ticket_id, b.created_at, b.created_by, b.ticket_code, b.ticket_quantity, b.total_ticket_price, b.updated_at, b.updated_by, b0.booked_ticket_id, b0.booking_date, b0.created_at, b0.created_by, b0.total_category_price, b0.transaction_id, b0.updated_at, b0.updated_by, t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by, c.category_id, c.category_name, c.created_at, c.created_by, c.updated_at, c.updated_by
+FROM bookedticketdetail AS b
+INNER JOIN bookedticket AS b0 ON b.booked_ticket_id = b0.booked_ticket_id
+INNER JOIN ticket AS t ON b.ticket_code = t.ticket_code
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE b.booked_ticket_id = @__bookedTicketId_0"
+[2025-03-05 05:49:27 INF] Successfully retrieved booked ticket details for BookedTicketId: 1
+[2025-03-05 05:49:27 INF] HTTP "GET" "/api/v1/get-booked-ticket/1" responded 200 in 29.3332 ms
+[2025-03-05 05:49:47 INF] Fetching ticket details for BookedTicketId: 5...
+[2025-03-05 05:49:47 INF] Executed DbCommand ("2"ms) [Parameters=["@__bookedTicketId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT b.booked_detail_id, b.booked_ticket_id, b.created_at, b.created_by, b.ticket_code, b.ticket_quantity, b.total_ticket_price, b.updated_at, b.updated_by, b0.booked_ticket_id, b0.booking_date, b0.created_at, b0.created_by, b0.total_category_price, b0.transaction_id, b0.updated_at, b0.updated_by, t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by, c.category_id, c.category_name, c.created_at, c.created_by, c.updated_at, c.updated_by
+FROM bookedticketdetail AS b
+INNER JOIN bookedticket AS b0 ON b.booked_ticket_id = b0.booked_ticket_id
+INNER JOIN ticket AS t ON b.ticket_code = t.ticket_code
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE b.booked_ticket_id = @__bookedTicketId_0"
+[2025-03-05 05:49:47 WRN] No booking found for BookedTicketId: 5
+[2025-03-05 05:49:47 INF] HTTP "GET" "/api/v1/get-booked-ticket/5" responded 404 in 59.9358 ms
+[2025-03-05 05:49:53 INF] Fetching ticket details for BookedTicketId: 4...
+[2025-03-05 05:49:53 INF] Executed DbCommand ("2"ms) [Parameters=["@__bookedTicketId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT b.booked_detail_id, b.booked_ticket_id, b.created_at, b.created_by, b.ticket_code, b.ticket_quantity, b.total_ticket_price, b.updated_at, b.updated_by, b0.booked_ticket_id, b0.booking_date, b0.created_at, b0.created_by, b0.total_category_price, b0.transaction_id, b0.updated_at, b0.updated_by, t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by, c.category_id, c.category_name, c.created_at, c.created_by, c.updated_at, c.updated_by
+FROM bookedticketdetail AS b
+INNER JOIN bookedticket AS b0 ON b.booked_ticket_id = b0.booked_ticket_id
+INNER JOIN ticket AS t ON b.ticket_code = t.ticket_code
+INNER JOIN category AS c ON t.category_id = c.category_id
+WHERE b.booked_ticket_id = @__bookedTicketId_0"
+[2025-03-05 05:49:53 INF] Successfully retrieved booked ticket details for BookedTicketId: 4
+[2025-03-05 05:49:53 INF] HTTP "GET" "/api/v1/get-booked-ticket/4" responded 200 in 8.3137 ms

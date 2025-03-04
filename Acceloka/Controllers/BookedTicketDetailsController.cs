@@ -18,7 +18,7 @@ namespace Acceloka.Controllers
         }
 
         // GET: view details of a booked ticket
-        [HttpGet("get-booked-ticket/{BookedTicketId}")]
+        [HttpGet("get-booked-ticket/{bookedTicketId}")]
         public async Task<IActionResult> Get(int bookedTicketId)
         {
             try
@@ -37,7 +37,7 @@ namespace Acceloka.Controllers
         }
 
         // DELETE api/<BookedTicketDetailsController>/5
-        [HttpDelete("revoke-ticket/{BookedTicketId}/{TicketCode}/{Qty}")]
+        [HttpDelete("revoke-ticket/{bookedTicketId}/{ticketCode}/{qty}")]
         public async Task<IActionResult> Delete(int bookedTicketId, string ticketCode, int qty, [FromHeader(Name = "Username")] string? username)
         {
             if (qty <= 0)
@@ -62,7 +62,7 @@ namespace Acceloka.Controllers
         }
 
         // PUT: edit quantity ticket yang sudah pernah di booking
-        [HttpPut("edit-booked-ticket/{BookedTicketId}")]
+        [HttpPut("edit-booked-ticket/{bookedTicketId}")]
         public async Task<IActionResult> Put(int bookedTicketId, [FromBody] List<BookTicketRequest> updatedTickets, [FromHeader(Name = "Username")] string? username)
         {
             try
@@ -77,7 +77,7 @@ namespace Acceloka.Controllers
                 return Ok(result);
             }
             catch (Exception ex)
-            { 
+            {
                 return BadRequest(ex.Message);
             }
         }
