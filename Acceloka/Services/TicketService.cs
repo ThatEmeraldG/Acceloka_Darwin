@@ -14,9 +14,9 @@ namespace Acceloka.Services
             _db = db;
             _logger = logger;
         }
-        
+
         // GET List Tickets
-        public async Task<List<TicketModel>> GetTickets(GetTicketRequest request)
+        public async Task<PaginationResponse<TicketModel>> GetTickets(GetTicketRequest request)
         {
             _logger.LogInformation("Fetching all available tickets...");
 
@@ -70,30 +70,43 @@ namespace Acceloka.Services
                 "eventdate" => request.OrderDirection?.ToLower() == "desc"
                     ? query.OrderByDescending(t => t.EventStart)
                     : query.OrderBy(t => t.EventStart),
-                _ => request.OrderDirection?.ToLower() == "desc" 
-                    ? query.OrderByDescending(t => t.TicketCode) 
+                _ => request.OrderDirection?.ToLower() == "desc"
+                    ? query.OrderByDescending(t => t.TicketCode)
                     : query.OrderBy(t => t.TicketCode)
             };
 
-            var tickets = await query.Select(Q => new TicketModel
+            var totalTickets = await query.CountAsync();
+            var totalPages = (int)Math.Ceiling(totalTickets / (double)request.PageSize);
+
+            var tickets = await query
+                .Skip((request.PageNumber - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .Select(Q => new TicketModel
+                {
+                    TicketCode = Q.TicketCode,
+                    TicketName = Q.TicketName,
+                    CategoryId = Q.CategoryId,
+                    CategoryName = Q.Category.CategoryName,
+                    Price = Q.Price,
+                    Quota = Q.Quota,
+                    EventStart = Q.EventStart,
+                    EventEnd = Q.EventEnd,
+                    CreatedAt = Q.CreatedAt,
+                    CreatedBy = Q.CreatedBy,
+                    UpdatedAt = Q.UpdatedAt,
+                    UpdatedBy = Q.UpdatedBy
+                }).ToListAsync();
+
+            _logger.LogInformation("Successfully fetched {TicketCount} tickets from page {PageNumber}", tickets.Count, request.PageNumber);
+
+            return new PaginationResponse<TicketModel>
             {
-                TicketCode = Q.TicketCode,
-                TicketName = Q.TicketName,
-                CategoryId = Q.CategoryId,
-                CategoryName = Q.Category.CategoryName,
-                Price = Q.Price,
-                Quota = Q.Quota,
-                EventStart = Q.EventStart,
-                EventEnd = Q.EventEnd,
-                CreatedAt = Q.CreatedAt,
-                CreatedBy = Q.CreatedBy,
-                UpdatedAt = Q.UpdatedAt,
-                UpdatedBy = Q.UpdatedBy
-            }).ToListAsync();
-
-            _logger.LogInformation("Successfully fetched {TicketCount} tickets", tickets.Count);
-
-            return tickets;
+                Data = tickets,
+                TotalRecords = totalTickets,
+                PageSize = request.PageSize,
+                PageNumber = request.PageNumber,
+                TotalPages = totalPages
+            };
         }
 
         // POST new Ticket
@@ -120,7 +133,7 @@ namespace Acceloka.Services
                 EventEnd = request.EventEnd,
                 CategoryId = categoryId,
                 CreatedAt = DateTime.UtcNow,
-                CreatedBy = string.IsNullOrEmpty(username)? "System" : username,
+                CreatedBy = string.IsNullOrEmpty(username) ? "System" : username,
             };
 
             _db.Tickets.Add(newData);

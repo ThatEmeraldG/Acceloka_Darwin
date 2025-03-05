@@ -20,5 +20,8 @@ namespace Acceloka.Models
 
         public string OrderBy { get; set; } = "ticketCode";
         public string OrderDirection { get; set; } = "ASC"; // ASC or DESC
+
+        public int PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
     }
 }
