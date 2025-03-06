@@ -16,7 +16,7 @@ namespace Acceloka.Controllers
         }
 
         // GET: api/<TransactionController>
-        [HttpGet]
+        [HttpGet("get-transactions")]
         public async Task<IActionResult> GetTransactions()
         {
             var datas = await _service.GetAllTransactions();

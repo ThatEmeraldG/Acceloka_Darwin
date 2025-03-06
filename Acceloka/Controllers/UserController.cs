@@ -18,7 +18,7 @@ namespace Acceloka.Controllers
             _service = service;
         }
 
-        [HttpGet]
+        [HttpGet("get-users")]
         public async Task<IActionResult> Get()
         {
             var datas = await _service.GetAllUsers();

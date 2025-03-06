@@ -68,3 +68,2542 @@ INNER JOIN category AS c ON t0.category_id = c.category_id
 ORDER BY t0.ticket_code"
 [2025-03-06 04:28:37 INF] Successfully fetched 5 tickets from page 2
 [2025-03-06 04:28:37 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 27.1023 ms
+[2025-03-06 09:32:48 INF] Now listening on: "http://localhost:5261"
+[2025-03-06 09:32:49 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-06 09:32:49 INF] Hosting environment: "Development"
+[2025-03-06 09:32:49 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-06 09:32:56 WRN] Failed to determine the https port for redirect.
+[2025-03-06 09:32:56 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-06 09:32:56 INF] Fetching all available tickets...
+[2025-03-06 09:32:58 INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 09:32:58 INF] Executed DbCommand ("9"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 09:32:58 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 09:32:58 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 1462.0966 ms
+[2025-03-06 09:33:00 INF] Fetching all available tickets...
+[2025-03-06 09:33:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 09:33:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 09:33:00 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 09:33:00 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 29.4459 ms
+[2025-03-06 09:33:37 INF] Fetching all available tickets...
+[2025-03-06 09:33:37 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 09:33:37 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 09:33:37 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 09:33:37 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 54.7103 ms
+[2025-03-06 09:33:47 INF] Fetching all available tickets...
+[2025-03-06 09:33:47 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 09:33:47 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 09:33:47 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 09:33:47 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 10.3801 ms
+[2025-03-06 09:42:15 INF] Fetching all available tickets...
+[2025-03-06 09:42:15 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 09:42:15 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 09:42:15 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 09:42:15 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 61.2739 ms
+[2025-03-06 10:29:20 INF] Fetching all available tickets...
+[2025-03-06 10:29:20 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:29:20 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:29:20 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:29:20 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 68.5533 ms
+[2025-03-06 10:29:33 INF] Fetching all available tickets...
+[2025-03-06 10:29:33 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:29:33 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:29:33 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:29:33 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.9801 ms
+[2025-03-06 10:34:38 INF] Fetching all available tickets...
+[2025-03-06 10:34:38 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:34:38 INF] Executed DbCommand ("5"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:34:38 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:34:38 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 75.2855 ms
+[2025-03-06 10:34:39 INF] Fetching all available tickets...
+[2025-03-06 10:34:39 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:34:39 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:34:39 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:34:39 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.5248 ms
+[2025-03-06 10:36:49 INF] Fetching all available tickets...
+[2025-03-06 10:36:49 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:36:49 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:36:49 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:36:49 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 16.9322 ms
+[2025-03-06 10:37:48 INF] Fetching all available tickets...
+[2025-03-06 10:37:48 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:37:48 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:37:48 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:37:48 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 18.5829 ms
+[2025-03-06 10:37:54 INF] Fetching all available tickets...
+[2025-03-06 10:37:54 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:37:54 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:37:54 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:37:54 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.4418 ms
+[2025-03-06 10:56:39 INF] Fetching all available tickets...
+[2025-03-06 10:56:39 INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:56:39 INF] Executed DbCommand ("4"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:56:39 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:56:39 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 97.9847 ms
+[2025-03-06 10:56:39 INF] Fetching all available tickets...
+[2025-03-06 10:56:39 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:56:39 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:56:39 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:56:39 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 9.3936 ms
+[2025-03-06 10:58:02 INF] Fetching all available tickets...
+[2025-03-06 10:58:02 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:02 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:02 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:02 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 18.4297 ms
+[2025-03-06 10:58:02 INF] Fetching all available tickets...
+[2025-03-06 10:58:02 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:02 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:02 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:02 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 9.6708 ms
+[2025-03-06 10:58:06 INF] Fetching all available tickets...
+[2025-03-06 10:58:06 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:06 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:06 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:06 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.4691 ms
+[2025-03-06 10:58:06 INF] Fetching all available tickets...
+[2025-03-06 10:58:06 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:06 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:06 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:06 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 9.1227 ms
+[2025-03-06 10:58:13 INF] Fetching all available tickets...
+[2025-03-06 10:58:13 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:13 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:13 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:13 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 9.7806 ms
+[2025-03-06 10:58:13 INF] Fetching all available tickets...
+[2025-03-06 10:58:13 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:13 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:13 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:13 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 10.0016 ms
+[2025-03-06 10:58:41 INF] Fetching all available tickets...
+[2025-03-06 10:58:41 INF] Fetching all available tickets...
+[2025-03-06 10:58:41 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:41 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:41 INF] Fetching all available tickets...
+[2025-03-06 10:58:41 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:41 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 38.2653 ms
+[2025-03-06 10:58:41 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:41 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:41 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:41 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 17.4539 ms
+[2025-03-06 10:58:41 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 10:58:41 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 10:58:41 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 10:58:41 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 81.4108 ms
+[2025-03-06 11:00:39 INF] Fetching all available tickets...
+[2025-03-06 11:00:39 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 11:00:39 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 11:00:39 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 11:00:39 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 16.4391 ms
+[2025-03-06 11:49:56 INF] Fetching all available tickets...
+[2025-03-06 11:49:56 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 11:49:56 INF] Executed DbCommand ("4"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 11:49:56 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 11:49:56 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 166.5921 ms
+[2025-03-06 11:50:02 INF] Fetching all available tickets...
+[2025-03-06 11:50:02 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 11:50:02 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 11:50:02 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 11:50:02 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.5320 ms
+[2025-03-06 11:50:56 INF] Fetching all available tickets...
+[2025-03-06 11:50:56 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 11:50:56 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 11:50:56 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 11:50:56 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 17.0218 ms
+[2025-03-06 11:50:56 INF] Fetching all available tickets...
+[2025-03-06 11:50:56 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 11:50:56 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 11:50:56 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 11:50:56 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 10.8065 ms
+[2025-03-06 13:50:28 INF] Now listening on: "http://localhost:5261"
+[2025-03-06 13:50:28 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-06 13:50:28 INF] Hosting environment: "Development"
+[2025-03-06 13:50:28 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-06 13:50:42 WRN] Failed to determine the https port for redirect.
+[2025-03-06 13:50:42 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-06 13:50:42 INF] Fetching all available tickets...
+[2025-03-06 13:50:43 INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 13:50:44 INF] Executed DbCommand ("11"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 13:50:44 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 13:50:44 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 1577.3113 ms
+[2025-03-06 13:56:30 INF] Fetching all available tickets...
+[2025-03-06 13:56:30 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 13:56:30 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 13:56:30 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 13:56:30 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 76.8157 ms
+[2025-03-06 13:59:11 INF] Fetching all available tickets...
+[2025-03-06 13:59:11 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 13:59:11 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 13:59:11 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 13:59:11 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 65.3989 ms
+[2025-03-06 13:59:34 INF] Fetching all available tickets...
+[2025-03-06 13:59:34 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 13:59:34 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 13:59:34 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 13:59:34 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.1229 ms
+[2025-03-06 14:00:04 INF] Fetching all available tickets...
+[2025-03-06 14:00:04 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:00:04 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:00:05 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:00:05 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 16.4443 ms
+[2025-03-06 14:00:06 INF] Fetching all available tickets...
+[2025-03-06 14:00:06 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:00:06 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:00:06 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:00:06 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.8620 ms
+[2025-03-06 14:00:08 INF] Fetching all available tickets...
+[2025-03-06 14:00:08 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:00:08 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:00:08 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:00:08 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.0948 ms
+[2025-03-06 14:00:10 INF] Fetching all available tickets...
+[2025-03-06 14:00:10 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:00:10 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:00:10 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:00:10 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 17.6345 ms
+[2025-03-06 14:00:18 INF] Fetching all available tickets...
+[2025-03-06 14:00:18 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:00:18 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:00:18 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:00:18 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.5447 ms
+[2025-03-06 14:01:33 INF] Fetching all available tickets...
+[2025-03-06 14:01:33 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:01:33 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:01:33 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:01:33 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 53.3291 ms
+[2025-03-06 14:02:49 INF] Fetching all available tickets...
+[2025-03-06 14:02:49 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:02:49 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:02:49 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:02:49 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.7338 ms
+[2025-03-06 14:02:50 INF] Fetching all available tickets...
+[2025-03-06 14:02:50 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:02:50 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:02:50 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:02:50 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.2066 ms
+[2025-03-06 14:02:55 INF] Fetching all available tickets...
+[2025-03-06 14:02:55 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:02:55 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:02:55 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:02:55 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.0229 ms
+[2025-03-06 14:09:28 INF] Fetching all available tickets...
+[2025-03-06 14:09:28 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:09:28 INF] Executed DbCommand ("5"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:09:28 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:09:28 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 97.5367 ms
+[2025-03-06 14:10:48 INF] Fetching all available tickets...
+[2025-03-06 14:10:48 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:10:48 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:10:48 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:10:48 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 24.2697 ms
+[2025-03-06 14:11:17 INF] Fetching all available tickets...
+[2025-03-06 14:11:17 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:11:17 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:11:17 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:11:17 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 16.4004 ms
+[2025-03-06 14:12:27 INF] Fetching all available tickets...
+[2025-03-06 14:12:27 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:12:27 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:12:27 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:12:27 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 16.7330 ms
+[2025-03-06 14:12:27 INF] HTTP "GET" "/favicon.ico" responded 404 in 0.1372 ms
+[2025-03-06 14:13:08 INF] Fetching all available tickets...
+[2025-03-06 14:13:08 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:13:08 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:13:08 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:13:08 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.3370 ms
+[2025-03-06 14:13:18 INF] Fetching all available tickets...
+[2025-03-06 14:13:18 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:13:18 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:13:18 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:13:18 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.4613 ms
+[2025-03-06 14:15:51 INF] Fetching all available tickets...
+[2025-03-06 14:15:51 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:15:51 INF] Executed DbCommand ("4"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:15:51 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:15:51 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 97.3436 ms
+[2025-03-06 14:16:01 INF] Fetching all available tickets...
+[2025-03-06 14:16:01 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:16:01 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:16:01 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:16:01 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.9177 ms
+[2025-03-06 14:26:27 INF] Fetching all available tickets...
+[2025-03-06 14:26:27 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:26:27 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:26:27 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:26:27 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 84.5761 ms
+[2025-03-06 14:27:45 INF] Fetching all available tickets...
+[2025-03-06 14:27:45 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:27:45 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:27:45 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:27:45 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 19.9490 ms
+[2025-03-06 14:27:48 INF] Fetching all available tickets...
+[2025-03-06 14:27:48 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:27:48 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:27:48 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:27:48 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.4076 ms
+[2025-03-06 14:28:45 INF] Fetching all available tickets...
+[2025-03-06 14:28:45 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:28:45 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:28:45 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:28:45 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 24.8424 ms
+[2025-03-06 14:29:18 INF] Fetching all available tickets...
+[2025-03-06 14:29:18 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:29:18 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:29:18 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:29:18 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 18.7774 ms
+[2025-03-06 14:30:45 INF] Fetching all available tickets...
+[2025-03-06 14:30:45 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:30:45 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:30:45 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:30:45 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 58.8267 ms
+[2025-03-06 14:31:23 INF] Fetching all available tickets...
+[2025-03-06 14:31:23 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:31:23 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:31:23 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:31:23 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 25.3220 ms
+[2025-03-06 14:31:38 INF] Fetching all available tickets...
+[2025-03-06 14:31:38 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:31:38 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:31:38 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:31:38 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 49.0437 ms
+[2025-03-06 14:31:59 INF] Fetching all available tickets...
+[2025-03-06 14:31:59 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:31:59 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:31:59 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:31:59 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 20.5646 ms
+[2025-03-06 14:33:19 INF] Fetching all available tickets...
+[2025-03-06 14:33:19 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:33:19 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:33:19 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:33:19 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 24.4642 ms
+[2025-03-06 14:36:32 INF] Now listening on: "http://localhost:5261"
+[2025-03-06 14:36:32 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-06 14:36:32 INF] Hosting environment: "Development"
+[2025-03-06 14:36:32 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-06 14:36:43 WRN] Failed to determine the https port for redirect.
+[2025-03-06 14:36:43 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-06 14:36:43 INF] Fetching all available tickets...
+[2025-03-06 14:36:44 INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:36:44 INF] Executed DbCommand ("12"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:36:44 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:36:44 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 1380.8134 ms
+[2025-03-06 14:36:48 INF] Fetching all available tickets...
+[2025-03-06 14:36:48 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:36:48 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:36:48 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:36:48 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 38.9610 ms
+[2025-03-06 14:36:50 INF] Fetching all available tickets...
+[2025-03-06 14:36:50 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:36:50 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:36:50 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:36:50 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 61.2731 ms
+[2025-03-06 14:37:54 INF] Fetching all available tickets...
+[2025-03-06 14:37:54 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:37:54 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:37:54 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:37:54 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 18.7354 ms
+[2025-03-06 14:37:56 INF] Fetching all available tickets...
+[2025-03-06 14:37:56 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:37:56 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:37:56 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:37:56 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.3013 ms
+[2025-03-06 14:37:57 INF] Fetching all available tickets...
+[2025-03-06 14:37:57 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:37:57 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:37:57 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:37:57 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 21.6965 ms
+[2025-03-06 14:37:58 INF] Fetching all available tickets...
+[2025-03-06 14:37:58 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:37:58 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:37:58 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:37:58 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.1334 ms
+[2025-03-06 14:37:59 INF] Fetching all available tickets...
+[2025-03-06 14:37:59 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:37:59 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:37:59 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:37:59 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.5313 ms
+[2025-03-06 14:37:59 INF] Fetching all available tickets...
+[2025-03-06 14:37:59 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:37:59 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:37:59 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:37:59 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.6210 ms
+[2025-03-06 14:38:00 INF] Fetching all available tickets...
+[2025-03-06 14:38:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:00 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:00 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.4055 ms
+[2025-03-06 14:38:01 INF] Fetching all available tickets...
+[2025-03-06 14:38:01 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:01 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:01 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:01 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.7171 ms
+[2025-03-06 14:38:02 INF] Fetching all available tickets...
+[2025-03-06 14:38:02 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:02 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:02 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:02 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.8574 ms
+[2025-03-06 14:38:03 INF] Fetching all available tickets...
+[2025-03-06 14:38:03 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:03 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:03 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:03 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.3914 ms
+[2025-03-06 14:38:04 INF] Fetching all available tickets...
+[2025-03-06 14:38:04 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:04 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:04 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:04 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.7211 ms
+[2025-03-06 14:38:05 INF] Fetching all available tickets...
+[2025-03-06 14:38:05 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:05 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:05 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:05 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.3854 ms
+[2025-03-06 14:38:17 INF] Fetching all available tickets...
+[2025-03-06 14:38:17 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:17 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:17 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:17 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.6894 ms
+[2025-03-06 14:38:21 INF] Fetching all available tickets...
+[2025-03-06 14:38:21 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:21 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:21 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:21 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 16.4954 ms
+[2025-03-06 14:38:22 INF] Fetching all available tickets...
+[2025-03-06 14:38:22 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:22 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:22 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:22 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.2672 ms
+[2025-03-06 14:38:23 INF] Fetching all available tickets...
+[2025-03-06 14:38:23 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:23 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:23 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:23 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.4707 ms
+[2025-03-06 14:38:23 INF] Fetching all available tickets...
+[2025-03-06 14:38:23 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:23 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:23 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:23 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.7367 ms
+[2025-03-06 14:38:25 INF] Fetching all available tickets...
+[2025-03-06 14:38:25 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:38:25 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:38:25 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:38:25 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.8926 ms
+[2025-03-06 14:39:12 INF] Fetching all available tickets...
+[2025-03-06 14:39:12 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:39:12 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:39:12 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:39:12 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 23.2250 ms
+[2025-03-06 14:40:40 INF] Now listening on: "http://localhost:5261"
+[2025-03-06 14:40:41 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-06 14:40:41 INF] Hosting environment: "Development"
+[2025-03-06 14:40:41 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-06 14:40:46 WRN] Failed to determine the https port for redirect.
+[2025-03-06 14:40:46 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-06 14:40:46 INF] Fetching all available tickets...
+[2025-03-06 14:40:48 INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 14:40:48 INF] Executed DbCommand ("10"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 14:40:48 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 14:40:48 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 1419.3621 ms
+[2025-03-06 15:14:00 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 41.2928 ms
+[2025-03-06 15:14:03 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 2.7121 ms
+[2025-03-06 15:14:15 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 1.0609 ms
+[2025-03-06 15:19:13 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 4.5113 ms
+[2025-03-06 15:19:23 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 0.7081 ms
+[2025-03-06 15:21:13 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 37.0909 ms
+[2025-03-06 15:21:15 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 0.8960 ms
+[2025-03-06 15:23:58 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 31.8524 ms
+[2025-03-06 15:28:14 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 26.5301 ms
+[2025-03-06 15:32:16 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 1.0317 ms
+[2025-03-06 15:48:19 INF] Fetching all available tickets...
+[2025-03-06 15:48:19 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:19 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:19 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:19 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 93.0292 ms
+[2025-03-06 15:48:22 INF] Fetching all available tickets...
+[2025-03-06 15:48:22 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:22 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:22 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:22 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 60.8695 ms
+[2025-03-06 15:48:24 INF] Fetching all available tickets...
+[2025-03-06 15:48:24 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:24 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:24 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:24 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.1693 ms
+[2025-03-06 15:48:26 INF] Fetching all available tickets...
+[2025-03-06 15:48:26 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:26 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:26 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:26 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.3496 ms
+[2025-03-06 15:48:28 INF] Fetching all available tickets...
+[2025-03-06 15:48:28 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:28 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:28 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:28 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 21.5322 ms
+[2025-03-06 15:48:30 INF] Fetching all available tickets...
+[2025-03-06 15:48:30 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:30 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:30 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:30 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.5915 ms
+[2025-03-06 15:48:32 INF] Fetching all available tickets...
+[2025-03-06 15:48:32 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:32 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:32 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:32 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.7695 ms
+[2025-03-06 15:48:35 INF] Fetching all available tickets...
+[2025-03-06 15:48:35 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:35 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:35 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:35 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.9985 ms
+[2025-03-06 15:48:39 INF] Fetching all available tickets...
+[2025-03-06 15:48:39 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:48:39 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:48:39 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:48:39 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.6670 ms
+[2025-03-06 15:48:48 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 1.3949 ms
+[2025-03-06 15:52:03 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 400 in 2.9833 ms
+[2025-03-06 15:53:50 INF] Fetching all available tickets...
+[2025-03-06 15:53:50 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:53:50 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:53:50 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:53:50 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 79.7912 ms
+[2025-03-06 15:53:54 INF] Fetching all available tickets...
+[2025-03-06 15:53:54 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:53:54 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:53:54 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 15:53:54 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 25.1135 ms
+[2025-03-06 15:53:55 INF] Fetching all available tickets...
+[2025-03-06 15:53:55 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:53:55 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:53:55 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:53:55 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.0953 ms
+[2025-03-06 15:53:57 INF] Fetching all available tickets...
+[2025-03-06 15:53:57 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:53:57 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:53:57 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 15:53:57 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.2121 ms
+[2025-03-06 15:53:58 INF] Fetching all available tickets...
+[2025-03-06 15:53:58 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:53:58 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:53:58 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:53:58 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.7176 ms
+[2025-03-06 15:53:59 INF] Fetching all available tickets...
+[2025-03-06 15:53:59 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:53:59 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:53:59 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 15:53:59 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 16.9566 ms
+[2025-03-06 15:54:00 INF] Fetching all available tickets...
+[2025-03-06 15:54:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:54:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:54:00 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:54:00 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.1016 ms
+[2025-03-06 15:54:02 INF] Fetching all available tickets...
+[2025-03-06 15:54:02 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:54:02 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:54:02 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 15:54:02 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.6412 ms
+[2025-03-06 15:54:08 INF] Fetching all available tickets...
+[2025-03-06 15:54:08 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 15:54:08 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 15:54:08 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 15:54:08 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.4983 ms
+[2025-03-06 16:00:19 INF] Fetching all available tickets...
+[2025-03-06 16:00:20 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 16:00:20 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 16:00:20 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 16:00:20 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 162.7970 ms
+[2025-03-06 16:00:21 INF] Fetching all available tickets...
+[2025-03-06 16:00:21 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 16:00:21 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 16:00:21 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 16:00:21 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.5959 ms
+[2025-03-06 16:00:22 INF] Fetching all available tickets...
+[2025-03-06 16:00:22 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 16:00:22 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 16:00:22 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 16:00:22 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.0247 ms
+[2025-03-06 16:00:23 INF] Fetching all available tickets...
+[2025-03-06 16:00:23 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 16:00:23 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 16:00:23 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 16:00:23 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.9826 ms
+[2025-03-06 16:09:01 INF] Fetching all available tickets...
+[2025-03-06 16:09:02 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 16:09:02 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 16:09:02 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 16:09:02 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 164.4555 ms
+[2025-03-06 17:29:48 INF] Fetching all available tickets...
+[2025-03-06 17:29:48 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 17:29:48 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 17:29:48 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 17:29:48 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 190.8371 ms
+[2025-03-06 18:06:41 INF] Fetching all available tickets...
+[2025-03-06 18:06:41 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:06:41 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:06:41 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:06:41 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 79.8497 ms
+[2025-03-06 18:09:25 INF] Fetching all available tickets...
+[2025-03-06 18:09:25 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:09:25 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:09:25 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:09:25 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 24.3838 ms
+[2025-03-06 18:13:14 INF] Fetching all available tickets...
+[2025-03-06 18:13:14 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:13:14 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:13:14 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 18:13:14 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 61.5164 ms
+[2025-03-06 18:13:15 INF] Fetching all available tickets...
+[2025-03-06 18:13:15 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:13:15 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:13:15 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:13:15 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.9304 ms
+[2025-03-06 18:18:28 INF] Fetching all available tickets...
+[2025-03-06 18:18:28 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:18:28 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:18:28 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:18:28 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 59.7253 ms
+[2025-03-06 18:18:28 INF] Fetching all available tickets...
+[2025-03-06 18:18:28 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:18:28 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:18:28 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:18:28 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.3521 ms
+[2025-03-06 18:18:30 INF] Fetching all available tickets...
+[2025-03-06 18:18:30 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:18:30 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:18:30 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:18:30 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.2778 ms
+[2025-03-06 18:18:36 INF] Fetching all available tickets...
+[2025-03-06 18:18:36 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:18:36 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:18:36 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:18:36 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 17.9827 ms
+[2025-03-06 18:23:19 INF] Fetching all available tickets...
+[2025-03-06 18:23:19 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:23:19 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:23:19 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 18:23:19 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.9239 ms
+[2025-03-06 18:23:21 INF] Fetching all available tickets...
+[2025-03-06 18:23:21 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:23:21 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:23:21 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:23:21 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 14.4276 ms
+[2025-03-06 18:30:25 INF] Fetching all available tickets...
+[2025-03-06 18:30:26 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:30:26 INF] Executed DbCommand ("3"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:30:26 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:30:26 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 181.6737 ms
+[2025-03-06 18:30:55 INF] Fetching all available tickets...
+[2025-03-06 18:30:55 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:30:55 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:30:55 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:30:55 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 19.6153 ms
+[2025-03-06 18:30:58 INF] Fetching all available tickets...
+[2025-03-06 18:30:58 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:30:58 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:30:58 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:30:58 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 13.0682 ms
+[2025-03-06 18:31:01 INF] Fetching all available tickets...
+[2025-03-06 18:31:01 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:31:01 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:31:01 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:31:01 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.8624 ms
+[2025-03-06 18:31:02 INF] Fetching all available tickets...
+[2025-03-06 18:31:02 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:31:02 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:31:02 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:31:02 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 10.1264 ms
+[2025-03-06 18:31:04 INF] Fetching all available tickets...
+[2025-03-06 18:31:04 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:31:04 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:31:04 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:31:04 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 17.4955 ms
+[2025-03-06 18:31:08 INF] Fetching all available tickets...
+[2025-03-06 18:31:08 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:31:08 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:31:08 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:31:08 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.0578 ms
+[2025-03-06 18:51:57 INF] Fetching all available tickets...
+[2025-03-06 18:51:58 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:51:58 INF] Executed DbCommand ("4"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:51:58 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 18:51:58 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 77.3962 ms
+[2025-03-06 18:51:59 INF] Fetching all available tickets...
+[2025-03-06 18:51:59 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:51:59 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:51:59 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:51:59 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.9527 ms
+[2025-03-06 18:52:00 INF] Fetching all available tickets...
+[2025-03-06 18:52:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:52:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_0 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:52:00 INF] Successfully fetched 1 tickets from page 2
+[2025-03-06 18:52:00 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 18.0827 ms
+[2025-03-06 18:52:02 INF] Fetching all available tickets...
+[2025-03-06 18:52:02 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:52:02 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:52:02 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:52:02 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.2538 ms
+[2025-03-06 18:54:31 INF] Fetching all available tickets...
+[2025-03-06 18:54:31 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:54:31 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:54:31 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:54:31 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 16.9941 ms
+[2025-03-06 18:54:53 INF] Fetching all available tickets...
+[2025-03-06 18:54:53 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:54:53 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:54:53 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:54:53 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 11.9116 ms
+[2025-03-06 18:54:53 INF] Fetching all available tickets...
+[2025-03-06 18:54:53 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:54:53 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:54:53 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:54:53 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.8497 ms
+[2025-03-06 18:55:00 INF] Fetching all available tickets...
+[2025-03-06 18:55:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:55:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:55:00 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:55:00 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.1967 ms
+[2025-03-06 18:55:00 INF] Fetching all available tickets...
+[2025-03-06 18:55:00 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 18:55:00 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 18:55:00 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 18:55:00 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 12.2847 ms
+[2025-03-06 19:05:59 INF] Fetching all available tickets...
+[2025-03-06 19:06:00 INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 19:06:00 INF] Executed DbCommand ("5"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 19:06:00 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 19:06:00 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 133.3301 ms
+[2025-03-06 19:06:25 INF] Fetching all available tickets...
+[2025-03-06 19:06:25 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 19:06:25 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 19:06:25 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 19:06:25 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 41.4182 ms
+[2025-03-06 19:12:12 INF] Fetching all available tickets...
+[2025-03-06 19:12:12 INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 19:12:12 INF] Executed DbCommand ("5"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 19:12:12 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 19:12:12 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 111.9210 ms
+[2025-03-06 19:14:07 INF] Fetching all available tickets...
+[2025-03-06 19:14:07 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 19:14:07 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 19:14:07 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 19:14:07 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 45.6018 ms
+[2025-03-06 19:16:31 INF] Fetching all available tickets...
+[2025-03-06 19:16:31 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 19:16:31 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 19:16:31 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 19:16:31 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 29.8418 ms
+[2025-03-06 19:19:32 INF] Fetching all available tickets...
+[2025-03-06 19:19:32 INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 19:19:32 INF] Executed DbCommand ("6"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 19:19:32 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 19:19:32 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 115.6455 ms
+[2025-03-06 19:20:25 INF] Fetching all available tickets...
+[2025-03-06 19:20:25 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 19:20:25 INF] Executed DbCommand ("2"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 19:20:25 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 19:20:25 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 40.8509 ms
