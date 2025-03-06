@@ -34,6 +34,8 @@ builder.Services.AddTransient<TicketService>();
 builder.Services.AddTransient<BookTicketService>();
 builder.Services.AddTransient<BookedTicketDetailsService>();
 builder.Services.AddTransient<UserService>();
+builder.Services.AddTransient<TransactionService>();
+
 
 var app = builder.Build();
 

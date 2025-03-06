@@ -2607,3 +2607,195 @@ INNER JOIN category AS c ON t0.category_id = c.category_id
 ORDER BY t0.ticket_code"
 [2025-03-06 19:20:25 INF] Successfully fetched 10 tickets from page 1
 [2025-03-06 19:20:25 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 40.8509 ms
+[2025-03-06 20:06:13 INF] Now listening on: "http://localhost:5261"
+[2025-03-06 20:06:13 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-06 20:06:13 INF] Hosting environment: "Development"
+[2025-03-06 20:06:13 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-06 20:23:09 WRN] Failed to determine the https port for redirect.
+[2025-03-06 20:23:09 ERR] HTTP "GET" "/api/v1/transaction/get-transactions" responded 500 in 26.6309 ms
+System.InvalidOperationException: Unable to resolve service for type 'Acceloka.Services.TransactionService' while attempting to activate 'Acceloka.Controllers.TransactionController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2025-03-06 20:23:09 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Acceloka.Services.TransactionService' while attempting to activate 'Acceloka.Controllers.TransactionController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2025-03-06 20:23:31 ERR] HTTP "GET" "/api/v1/transaction/get-transactions" responded 500 in 1.1240 ms
+System.InvalidOperationException: Unable to resolve service for type 'Acceloka.Services.TransactionService' while attempting to activate 'Acceloka.Controllers.TransactionController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2025-03-06 20:23:31 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Acceloka.Services.TransactionService' while attempting to activate 'Acceloka.Controllers.TransactionController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+[2025-03-06 20:24:56 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-06 20:24:56 INF] Fetching all users...
+[2025-03-06 20:24:57 INF] Executed DbCommand ("18"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT u.user_id AS \"UserId\", u.user_name AS \"UserName\", u.user_email AS \"UserEmail\", u.created_at AS \"CreatedAt\", u.updated_at AS \"UpdatedAt\"
+FROM users AS u"
+[2025-03-06 20:24:57 INF] Successfully fetched 2 users
+[2025-03-06 20:24:57 INF] HTTP "GET" "/api/v1/user/get-users" responded 200 in 1072.1653 ms
+[2025-03-06 20:26:46 INF] Fetching all available tickets...
+[2025-03-06 20:26:46 INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 20:26:46 INF] Executed DbCommand ("9"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 20:26:46 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 20:26:46 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 182.7387 ms
+[2025-03-06 20:26:46 INF] Fetching all available tickets...
+[2025-03-06 20:26:47 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 20:26:47 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 20:26:47 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 20:26:47 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 60.5678 ms
+[2025-03-06 20:27:34 INF] Fetching all available tickets...
+[2025-03-06 20:27:34 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 20:27:34 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 20:27:34 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 20:27:34 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 17.4886 ms
+[2025-03-06 20:27:34 INF] Fetching all available tickets...
+[2025-03-06 20:27:34 INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 20:27:34 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 20:27:34 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 20:27:34 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 17.5155 ms
+[2025-03-06 20:27:48 INF] Fetching all available tickets...
+[2025-03-06 20:27:48 INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT count(*)::int
+FROM ticket AS t
+WHERE t.quota > 0"
+[2025-03-06 20:27:48 INF] Executed DbCommand ("1"ms) [Parameters=["@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT t0.ticket_code AS \"TicketCode\", t0.ticket_name AS \"TicketName\", t0.category_id AS \"CategoryId\", c.category_name AS \"CategoryName\", t0.price AS \"Price\", t0.quota AS \"Quota\", t0.event_start AS \"EventStart\", t0.event_end AS \"EventEnd\", t0.created_at AS \"CreatedAt\", t0.created_by AS \"CreatedBy\", t0.updated_at AS \"UpdatedAt\", t0.updated_by AS \"UpdatedBy\"
+FROM (
+    SELECT t.ticket_code, t.category_id, t.created_at, t.created_by, t.event_end, t.event_start, t.price, t.quota, t.ticket_name, t.updated_at, t.updated_by
+    FROM ticket AS t
+    WHERE t.quota > 0
+    ORDER BY t.ticket_code
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t0
+INNER JOIN category AS c ON t0.category_id = c.category_id
+ORDER BY t0.ticket_code"
+[2025-03-06 20:27:48 INF] Successfully fetched 10 tickets from page 1
+[2025-03-06 20:27:48 INF] HTTP "GET" "/api/v1/ticket/get-available-ticket" responded 200 in 15.8309 ms
+[2025-03-06 20:30:39 ERR] HTTP "GET" "/api/v1/transaction/get-transactions" responded 500 in 2.3782 ms
+System.InvalidOperationException: Unable to resolve service for type 'Acceloka.Services.TransactionService' while attempting to activate 'Acceloka.Controllers.TransactionController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2025-03-06 20:30:39 ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Acceloka.Services.TransactionService' while attempting to activate 'Acceloka.Controllers.TransactionController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
