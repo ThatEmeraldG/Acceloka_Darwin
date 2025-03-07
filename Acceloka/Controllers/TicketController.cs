@@ -1,6 +1,8 @@
-﻿using Acceloka.Entities;
+﻿using Acceloka.Application.Commands.Tickets;
+using Acceloka.Entities;
 using Acceloka.Models;
 using Acceloka.Services;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -13,9 +15,11 @@ namespace Acceloka.Controllers
     public class TicketController : ControllerBase
     {
         private readonly TicketService _service;
-        public TicketController(TicketService service)
+        private readonly IMediator _mediator;
+        public TicketController(TicketService service, IMediator mediator)
         {
             _service = service;
+            _mediator = mediator;
         }
 
         // GET
@@ -30,16 +34,30 @@ namespace Acceloka.Controllers
 
         // POST api/<TicketController>
         [HttpPost("create-ticket")]
-        public async Task<IActionResult> Post([FromBody] CreateTicketRequest request, [FromHeader (Name = "Username")] string? username)
+        public async Task<IActionResult> Post(
+            [FromBody] CreateTicketRequest request,
+            [FromHeader (Name = "Username")] string? username)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest("Invalid request.");
             }
 
-            var datas = await _service.PostTicket(request, username);
+            var command = new CreateTicketCommand(
+                Username: username ?? "System",
+                TicketCode: request.TicketCode,
+                TicketName: request.TicketName,
+                CategoryName: request.CategoryName,
+                EventStart: request.EventStart,
+                EventEnd: request.EventEnd,
+                Price: request.Price,
+                Quota: request.Quota
+            );
 
-            return Ok(datas);
+            //var datas = await _service.PostTicket(request, username);
+            var ticketId = await _mediator.Send(command);
+
+            return Ok(ticketId);
         }
     }
 }

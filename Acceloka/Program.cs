@@ -2,6 +2,12 @@ using Acceloka.Entities;
 using Acceloka.Services;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using MediatR;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.Extensions.DependencyInjection;
+using Acceloka.Application.Behaviors;
+using Acceloka.Application.Commands.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +35,14 @@ builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AccelokaContext>(option
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSqlConnection"));
 });
+
+builder.Services.AddMediatR(cfg =>
+{
+    cfg.RegisterServicesFromAssembly(Acceloka.Application.AssemblyReference.Assembly);
+});
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
+builder.Services.AddValidatorsFromAssembly(Acceloka.Application.AssemblyReference.Assembly, includeInternalTypes: true);
+builder.Services.AddValidatorsFromAssemblyContaining<CreateUserCommandValidator>();
 
 builder.Services.AddTransient<TicketService>();
 builder.Services.AddTransient<BookTicketService>();

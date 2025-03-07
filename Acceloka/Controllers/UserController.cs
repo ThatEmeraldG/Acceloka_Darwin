@@ -1,6 +1,9 @@
-﻿using Acceloka.Entities;
+﻿using Acceloka.Application.Commands.Users;
+using Acceloka.Entities;
 using Acceloka.Models;
 using Acceloka.Services;
+using Acceloka.Shared;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +16,11 @@ namespace Acceloka.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserService _service;
-        public UserController(UserService service)
+        private readonly IMediator _mediator;
+        public UserController(UserService service, IMediator mediator)
         {
             _service = service;
+            _mediator = mediator;
         }
 
         [HttpGet("get-users")]
@@ -38,12 +43,25 @@ namespace Acceloka.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid Request");
+                return BadRequest("Invalid request.");
             }
 
-            var datas = await _service.PostUser(requestUser);
+            var command = new CreateUserCommand(
+                requestUser.UserId,
+                requestUser.UserName,
+                requestUser.UserEmail,
+                requestUser.UserPassword
+            );
 
-            return Ok(datas);
+            //var datas = await _service.PostUser(requestUser);
+
+            Result<string> result = await _mediator.Send(command);
+            if (result.IsFailure)
+            {
+                return BadRequest(result.Error);
+            }
+
+            return Ok(result);
         }
     }
 }
