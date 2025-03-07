@@ -19,7 +19,8 @@ namespace Acceloka.Application.Commands.Users
                 UserId = request.UserId,
                 UserName = request.UserName,
                 UserEmail = request.UserEmail,
-                UserPassword = request.UserPassword
+                UserPassword = request.UserPassword,
+                CreatedAt = DateTime.UtcNow,
             };
 
             _context.Users.Add(user);

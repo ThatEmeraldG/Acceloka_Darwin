@@ -4083,3 +4083,57 @@ INNER JOIN category AS c ON t.category_id = c.category_id
 WHERE b.booked_ticket_id = @__bookedTicketId_0"
 [2025-03-07 18:00:34 INF] Successfully retrieved booked ticket details for BookedTicketId: 3
 [2025-03-07 18:00:34 INF] HTTP "GET" "/api/v1/get-booked-ticket/3" responded 200 in 8.3971 ms
+[2025-03-07 18:40:34 INF] Now listening on: "http://localhost:5261"
+[2025-03-07 18:40:34 INF] Application started. Press Ctrl+C to shut down.
+[2025-03-07 18:40:34 INF] Hosting environment: "Development"
+[2025-03-07 18:40:34 INF] Content root path: "C:\Users\user\OneDrive\Documents\Codes\Accelist\Training\Acceloka\Acceloka"
+[2025-03-07 18:40:42 WRN] Failed to determine the https port for redirect.
+[2025-03-07 18:40:43 WRN] 'AddEntityFramework*' was called on the service provider, but 'UseInternalServiceProvider' wasn't called in the DbContext options configuration. Consider removing the 'AddEntityFramework*' call, as in most cases it's not needed and may cause conflicts with other products and services registered in the same service provider.
+[2025-03-07 18:40:43 INF] Fetching user "create-user"
+[2025-03-07 18:40:44 INF] Executed DbCommand ("57"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT u.user_id, u.created_at, u.updated_at, u.user_email, u.user_name, u.user_password
+FROM users AS u
+WHERE u.user_id = @__id_0
+LIMIT 1"
+[2025-03-07 18:40:44 WRN] User "create-user" not found
+[2025-03-07 18:40:44 INF] HTTP "GET" "/api/v1/user/create-user" responded 204 in 1339.4787 ms
+[2025-03-07 18:41:13 INF] Fetching user "create-user"
+[2025-03-07 18:41:13 INF] Executed DbCommand ("5"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT u.user_id, u.created_at, u.updated_at, u.user_email, u.user_name, u.user_password
+FROM users AS u
+WHERE u.user_id = @__id_0
+LIMIT 1"
+[2025-03-07 18:41:13 WRN] User "create-user" not found
+[2025-03-07 18:41:13 INF] HTTP "GET" "/api/v1/user/create-user" responded 204 in 25.3714 ms
+[2025-03-07 18:41:17 INF] Fetching user "create-user"
+[2025-03-07 18:41:17 INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT u.user_id, u.created_at, u.updated_at, u.user_email, u.user_name, u.user_password
+FROM users AS u
+WHERE u.user_id = @__id_0
+LIMIT 1"
+[2025-03-07 18:41:17 WRN] User "create-user" not found
+[2025-03-07 18:41:17 INF] HTTP "GET" "/api/v1/user/create-user" responded 204 in 53.7618 ms
+[2025-03-07 18:41:25 INF] Fetching user "create-user"
+[2025-03-07 18:41:25 INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT u.user_id, u.created_at, u.updated_at, u.user_email, u.user_name, u.user_password
+FROM users AS u
+WHERE u.user_id = @__id_0
+LIMIT 1"
+[2025-03-07 18:41:25 WRN] User "create-user" not found
+[2025-03-07 18:41:25 INF] HTTP "GET" "/api/v1/user/create-user" responded 204 in 7.5913 ms
+[2025-03-07 18:41:40 INF] Fetching user "create-user"
+[2025-03-07 18:41:40 INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT u.user_id, u.created_at, u.updated_at, u.user_email, u.user_name, u.user_password
+FROM users AS u
+WHERE u.user_id = @__id_0
+LIMIT 1"
+[2025-03-07 18:41:40 WRN] User "create-user" not found
+[2025-03-07 18:41:40 INF] HTTP "GET" "/api/v1/user/create-user" responded 204 in 7.2201 ms
+[2025-03-07 18:41:47 INF] Fetching user "create-user"
+[2025-03-07 18:41:47 INF] Executed DbCommand ("1"ms) [Parameters=["@__id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT u.user_id, u.created_at, u.updated_at, u.user_email, u.user_name, u.user_password
+FROM users AS u
+WHERE u.user_id = @__id_0
+LIMIT 1"
+[2025-03-07 18:41:47 WRN] User "create-user" not found
+[2025-03-07 18:41:48 INF] HTTP "GET" "/api/v1/user/create-user" responded 204 in 7.7276 ms

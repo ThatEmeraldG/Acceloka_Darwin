@@ -6,6 +6,10 @@ namespace Acceloka.Application.Commands.Users
     {
         public CreateUserCommandValidator()
         {
+            RuleFor(x => x.UserId)
+                .NotEmpty().WithMessage("UserId is required.")
+                .MaximumLength(10);
+
             RuleFor(x => x.UserName)
                 .NotEmpty().WithMessage("Username is required.")
                 .MaximumLength(50);
